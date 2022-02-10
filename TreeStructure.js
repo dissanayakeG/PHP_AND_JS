@@ -31,7 +31,7 @@ function setGroups(list) {
         );
 
     //console.log(result);
-    return getTree;
+    return result;
 }
 function setGroups2() {
     var data = [
