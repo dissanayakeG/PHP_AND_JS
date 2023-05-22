@@ -31,3 +31,5 @@ function paths(n,m){
     }
 }
 console.log(paths(3,4));
+
+console.log(Array.from({ length: 5 }, () => Array(4).fill(0))); // print 2D array
