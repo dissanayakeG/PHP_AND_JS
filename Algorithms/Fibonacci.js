@@ -1,4 +1,9 @@
-console.log(fibonacci(700));
+console.log("memoization and tabulation->"+fibonacciMT(20));
+console.log("tabulation->"+fibonacciT(20));
+console.log("memoization->"+fibonacciM(20));
+console.log("normal->"+fibonacci(20));
+
+
 
 //filling array for given n
 function fib(n) {
@@ -31,4 +36,64 @@ function fibonacci(n){
   //       -->[ fibonacci(1)+fibonacci(0) ] + 1  + [ 1+0 ] + [ 1+0 ] + 1
   //       -->[ 1+0 ] + 1 + [ 1+0 ] + [ 1+0 ] + 1
   //       -->5 //0,1,1,2,3,5<-,8,13,21....
+}
+
+//applying memoization
+function fibonacciM(n, memo = {}) {
+  if (n == 0) {
+    return 0;
+  }
+  if (n == 1) {
+    return 1;
+  }
+
+  if (memo[n]) {
+    return memo[n];
+  }
+
+  memo[n] = fibonacci(n - 1, memo) + fibonacci(n - 2, memo);
+  return memo[n];
+}
+
+//apply tabulation 
+function fibonacciT(n) {
+  if (n == 0) {
+    return 0;
+  }
+  if (n == 1) {
+    return 1;
+  }
+
+  const fibTable = [0, 1]; // Initialize the Fibonacci table with base cases
+
+  for (let i = 2; i <= n; i++) {
+    fibTable[i] = fibTable[i - 1] + fibTable[i - 2]; // Calculate the Fibonacci number iteratively
+  }
+
+  return fibTable[n]; // Return the Fibonacci number at index n
+}
+
+
+//apply both
+function fibonacciMT(n, memo = []) {
+  if (n == 0) {
+    return 0;
+  }
+  if (n == 1) {
+    return 1;
+  }
+
+  if (memo[n]) {
+    return memo[n];
+  }
+
+  const fibTable = [0, 1]; // Initialize the Fibonacci table with base cases
+
+  for (let i = 2; i <= n; i++) {
+    fibTable[i] = fibTable[i - 1] + fibTable[i - 2]; // Calculate the Fibonacci number iteratively
+  }
+
+  memo[n] = fibTable[n]; // Store the calculated Fibonacci number in memoization table
+
+  return memo[n]; // Return the Fibonacci number at index n
 }
