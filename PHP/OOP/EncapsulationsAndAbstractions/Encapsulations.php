@@ -1,6 +1,6 @@
 <?php
 
-namespace App\OOP\Encapsulations;
+namespace App\OOP\EncapsulationsAndAbstractions;
 
 class Encapsulations
 {
@@ -11,6 +11,7 @@ class Encapsulations
     public function setName(String $name)
     {
         $this->name = $name;
+        $this->internalMethod();
         return $this;
     }
 
@@ -28,5 +29,10 @@ class Encapsulations
     public function getAge()
     {
         return $this->age;
+    }
+
+    private function internalMethod()
+    {
+        return true;
     }
 }
