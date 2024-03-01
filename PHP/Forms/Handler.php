@@ -24,14 +24,12 @@ echo '<b>filter_input consider only the values exist in $_POST original array</b
 dump('input-->', filter_input(INPUT_POST, 'input', FILTER_SANITIZE_EMAIL), 'non_exist-->', filter_input(INPUT_POST, 'non_exist', FILTER_SANITIZE_EMAIL));
 
 
-$clean_id = filter_var($_GET['id'], FILTER_SANITIZE_NUMBER_INT);
-$id = filter_var($clean_id, FILTER_VALIDATE_INT);
+$clean_id = filter_var($_POST['input'], FILTER_SANITIZE_EMAIL);
+$id = filter_var($clean_id, FILTER_VALIDATE_EMAIL);
 
 dump($clean_id, $id);
 
-
-
-$clean_input = filter_input(INPUT_GET, 'id', FILTER_SANITIZE_NUMBER_INT);
-$valid_id = filter_input(INPUT_GET, 'id',FILTER_VALIDATE_INT);
+$clean_input = filter_input(INPUT_POST, 'input', FILTER_SANITIZE_EMAIL);
+$valid_id = filter_input(INPUT_POST, 'input', FILTER_VALIDATE_EMAIL);
 
 dump($clean_input, $valid_id);

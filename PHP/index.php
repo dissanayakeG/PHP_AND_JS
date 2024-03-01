@@ -1,5 +1,7 @@
 <?php
 
+require_once __DIR__ . '/vendor/autoload.php';
+
 
 //php serve
 //php -S localhost:8000
@@ -9,5 +11,3 @@
 
 require './Forms/Form.php';
 require './helpers.php';
-
-?>
