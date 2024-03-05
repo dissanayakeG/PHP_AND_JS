@@ -17,7 +17,7 @@ $flat = [
 ];
 
 
-$tree = buildTree($flat);
+// $tree = buildTree($flat);
 
 function buildTree(array $flat)
 {
@@ -39,14 +39,15 @@ function buildTree(array $flat)
     return $fnBuilder($grouped[0]);
 }
 
-$groupd = groupedTree($tree);
+$grouped2 = groupedTree($flat);
 
-echo json_encode($groupd, JSON_PRETTY_PRINT);
+echo json_encode($grouped2, JSON_PRETTY_PRINT);
 
 
 function groupedTree($tree)
 {
     $groupedByFuncTableName = array_reduce($tree, function (array $accumulator, array $element) {
+        // var_dump(json_encode($accumulator, JSON_PRETTY_PRINT),  json_encode($element, JSON_PRETTY_PRINT)); echo PHP_EOL;//die();
         if (isset($element['children'])) {
             $element['children'] = groupedTree($element['children']);
         }
