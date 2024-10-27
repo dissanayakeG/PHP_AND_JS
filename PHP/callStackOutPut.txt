@@ -1,0 +1,37 @@
+
+Push: fib([4]) called by main([])
+               Current Stack: ["fib([4])"]
+Push: fib([3]) called by fib([4])
+               Current Stack: ["fib([4])","fib([3])"]
+Push: fib([2]) called by fib([3])
+               Current Stack: ["fib([4])","fib([3])","fib([2])"]
+Push: fib([1]) called by fib([2])
+               Current Stack: ["fib([4])","fib([3])","fib([2])","fib([1])"]
+               Return: 1
+               Current Stack: ["fib([4])","fib([3])","fib([2])"]
+Push: fib([0]) called by fib([2])
+               Current Stack: ["fib([4])","fib([3])","fib([2])","fib([0])"]
+               Return: 0
+               Current Stack: ["fib([4])","fib([3])","fib([2])"]
+               Return: fib([2])
+               Current Stack: ["fib([4])","fib([3])"]
+Push: fib([1]) called by fib([3])
+               Current Stack: ["fib([4])","fib([3])","fib([1])"]
+               Return: 1
+               Current Stack: ["fib([4])","fib([3])"]
+               Return: fib([3])
+               Current Stack: ["fib([4])"]
+Push: fib([2]) called by fib([4])
+               Current Stack: ["fib([4])","fib([2])"]
+Push: fib([1]) called by fib([2])
+               Current Stack: ["fib([4])","fib([2])","fib([1])"]
+               Return: 1
+               Current Stack: ["fib([4])","fib([2])"]
+Push: fib([0]) called by fib([2])
+               Current Stack: ["fib([4])","fib([2])","fib([0])"]
+               Return: 0
+               Current Stack: ["fib([4])","fib([2])"]
+               Return: fib([2])
+               Current Stack: ["fib([4])"]
+               Return: fib([4])
+               Current Stack: []
