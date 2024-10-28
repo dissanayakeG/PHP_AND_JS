@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Call Stack Animation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f4f4f9;
+        }
+
+        .stack-container {
+            display: flex;
+            flex-direction: column-reverse;
+            align-items: center;
+            border: 2px solid #333;
+            padding: 10px;
+            width: 300px;
+            height: 400px;
+            overflow-y: auto;
+            background-color: #fff;
+        }
+
+        .stack-frame {
+            background-color: #4CAF50;
+            color: #fff;
+            padding: 10px;
+            margin: 5px 0;
+            width: 100%;
+            text-align: center;
+            border-radius: 5px;
+            animation: slideIn 0.5s ease;
+        }
+
+        .stack-frame.return {
+            background-color: #FF5722;
+            animation: slideOut 0.5s ease forwards;
+        }
+
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes slideOut {
+            from { opacity: 1; transform: translateY(0); }
+            to { opacity: 0; transform: translateY(20px); }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="stack-container" id="stackContainer">
+        <!-- Stack frames will be dynamically added here -->
+    </div>
+
+    <script>
+        // Initialize a global stack array
+        const callStack = [];
+
+        // Push a function call onto the stack
+        function pushToStack(functionName, args) {
+            const stackContainer = document.getElementById("stackContainer");
+            const frame = document.createElement("div");
+            frame.className = "stack-frame";
+            frame.textContent = `${functionName}(${JSON.stringify(args)})`;
+            stackContainer.appendChild(frame);
+            callStack.push(frame);
+        }
+
+        // Pop a function call from the stack
+        function popFromStack() {
+            const frame = callStack.pop();
+            if (frame) {
+                frame.classList.add("return");
+                setTimeout(() => frame.remove(), 5000); // Wait for animation to complete before removing
+            }
+        }
+
+        // Recursive function with stack tracking
+        function fib(n) {
+            pushToStack("fib", [n]);
+
+            // Base case
+            if (n <= 1) {
+                setTimeout(() => popFromStack(), 5000); // Pop after a delay
+                return n;
+            }
+
+            // Recursive cases
+            const result = fib(n - 1) + fib(n - 2);
+
+            // Pop after completing recursive calls
+            setTimeout(() => popFromStack(), 5000);
+            return result;
+        }
+
+        // Start the Fibonacci calculation and stack animation
+        fib(4);
+    </script>
+</body>
+</html>
