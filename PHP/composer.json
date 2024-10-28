@@ -7,5 +7,7 @@
 			"App\\": ""
 		}
 	},
-	"require": {}
+	"require": {
+		"phpoffice/phpspreadsheet": "^2.0"
+	}
 }

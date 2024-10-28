@@ -1,0 +1,1874 @@
+[
+    {
+        "Country": "Abu Dhabi",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AE",
+        "CountryCodeISO3166Alpha3": "ARE"
+    },
+    {
+        "Country": "Afghanistan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AF",
+        "CountryCodeISO3166Alpha3": "AFG"
+    },
+    {
+        "Country": "Akrotiri",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GR1",
+        "CountryCodeISO3166Alpha3": "GRC"
+    },
+    {
+        "Country": "Aland Islands",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "AX",
+        "CountryCodeISO3166Alpha3": "ALA"
+    },
+    {
+        "Country": "Alaska",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "US3",
+        "CountryCodeISO3166Alpha3": "USA"
+    },
+    {
+        "Country": "Albania",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "AL",
+        "CountryCodeISO3166Alpha3": "ALB"
+    },
+    {
+        "Country": "Algeria",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "DZ",
+        "CountryCodeISO3166Alpha3": "DZA"
+    },
+    {
+        "Country": "America",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "US2",
+        "CountryCodeISO3166Alpha3": "USA"
+    },
+    {
+        "Country": "American Samoa",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AS",
+        "CountryCodeISO3166Alpha3": "ASM"
+    },
+    {
+        "Country": "Andorra",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "AD",
+        "CountryCodeISO3166Alpha3": "AND"
+    },
+    {
+        "Country": "Angola",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AO",
+        "CountryCodeISO3166Alpha3": "AGO"
+    },
+    {
+        "Country": "Anguilla",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "AI",
+        "CountryCodeISO3166Alpha3": "AIA"
+    },
+    {
+        "Country": "Antarctic",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AQ",
+        "CountryCodeISO3166Alpha3": "ATA"
+    },
+    {
+        "Country": "Antigua",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "AG",
+        "CountryCodeISO3166Alpha3": "ATG"
+    },
+    {
+        "Country": "Antilles",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "BQ",
+        "CountryCodeISO3166Alpha3": "BES"
+    },
+    {
+        "Country": "Argentina",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AR",
+        "CountryCodeISO3166Alpha3": "ARG"
+    },
+    {
+        "Country": "Armenia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "AM",
+        "CountryCodeISO3166Alpha3": "ARM"
+    },
+    {
+        "Country": "Aruba",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "AW",
+        "CountryCodeISO3166Alpha3": "ABW"
+    },
+    {
+        "Country": "Ascension Island",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SH",
+        "CountryCodeISO3166Alpha3": "SHN"
+    },
+    {
+        "Country": "Australia",
+        "DestinationCode": "AreaFour",
+        "CountryCodeISO3166Alpha2": "AU",
+        "CountryCodeISO3166Alpha3": "AUS"
+    },
+    {
+        "Country": "Austria",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "AT",
+        "CountryCodeISO3166Alpha3": "AUT"
+    },
+    {
+        "Country": "Azerbaijan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AZ",
+        "CountryCodeISO3166Alpha3": "AZE"
+    },
+    {
+        "Country": "Azores",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PT1",
+        "CountryCodeISO3166Alpha3": "PRT"
+    },
+    {
+        "Country": "Bahamas",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "BS",
+        "CountryCodeISO3166Alpha3": "BHS"
+    },
+    {
+        "Country": "Bahrain",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BH",
+        "CountryCodeISO3166Alpha3": "BHR"
+    },
+    {
+        "Country": "Balearics",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES5",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Bali",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ID",
+        "CountryCodeISO3166Alpha3": "IDN"
+    },
+    {
+        "Country": "Baltic Islands",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "AX",
+        "CountryCodeISO3166Alpha3": "ALA"
+    },
+    {
+        "Country": "Bangladesh",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BD",
+        "CountryCodeISO3166Alpha3": "BGD"
+    },
+    {
+        "Country": "Barbados",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "BB",
+        "CountryCodeISO3166Alpha3": "BRB"
+    },
+    {
+        "Country": "Barbuda",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "AG",
+        "CountryCodeISO3166Alpha3": "ATG"
+    },
+    {
+        "Country": "Belarus",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "BY",
+        "CountryCodeISO3166Alpha3": "BLR"
+    },
+    {
+        "Country": "Belgium",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "BE",
+        "CountryCodeISO3166Alpha3": "BEL"
+    },
+    {
+        "Country": "Belize",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BZ",
+        "CountryCodeISO3166Alpha3": "BLZ"
+    },
+    {
+        "Country": "Benin",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BJ",
+        "CountryCodeISO3166Alpha3": "BEN"
+    },
+    {
+        "Country": "Bermuda",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BM",
+        "CountryCodeISO3166Alpha3": "BMU"
+    },
+    {
+        "Country": "Bhutan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BT",
+        "CountryCodeISO3166Alpha3": "BTN"
+    },
+    {
+        "Country": "Bolivia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BO",
+        "CountryCodeISO3166Alpha3": "BOL"
+    },
+    {
+        "Country": "Bonaire(Antilles)",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "BQ",
+        "CountryCodeISO3166Alpha3": "BES"
+    },
+    {
+        "Country": "Bosnia And Herzegovina",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "BA",
+        "CountryCodeISO3166Alpha3": "BIH"
+    },
+    {
+        "Country": "Botswana",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BW",
+        "CountryCodeISO3166Alpha3": "BWA"
+    },
+    {
+        "Country": "Bouvet Island",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BV",
+        "CountryCodeISO3166Alpha3": "BVT"
+    },
+    {
+        "Country": "Brazil",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BR",
+        "CountryCodeISO3166Alpha3": "BRA"
+    },
+    {
+        "Country": "British Indian Ocean Territory",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "IO",
+        "CountryCodeISO3166Alpha3": "IOT"
+    },
+    {
+        "Country": "British Virgin Islands",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "VG",
+        "CountryCodeISO3166Alpha3": "VGB"
+    },
+    {
+        "Country": "Brunei Darussalam",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BN",
+        "CountryCodeISO3166Alpha3": "BRN"
+    },
+    {
+        "Country": "Bulgaria",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "BG",
+        "CountryCodeISO3166Alpha3": "BGR"
+    },
+    {
+        "Country": "Burkina Faso",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BF",
+        "CountryCodeISO3166Alpha3": "BFA"
+    },
+    {
+        "Country": "Burma",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MM",
+        "CountryCodeISO3166Alpha3": null
+    },
+    {
+        "Country": "Burundi",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "BI",
+        "CountryCodeISO3166Alpha3": "BDI"
+    },
+    {
+        "Country": "Cambodia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "KH",
+        "CountryCodeISO3166Alpha3": "KHM"
+    },
+    {
+        "Country": "Cameroon",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CM",
+        "CountryCodeISO3166Alpha3": "CMR"
+    },
+    {
+        "Country": "Canada",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "CA",
+        "CountryCodeISO3166Alpha3": "CAN"
+    },
+    {
+        "Country": "Canary Islands",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES1",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Cape Verde",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CV",
+        "CountryCodeISO3166Alpha3": null
+    },
+    {
+        "Country": "Caribbean",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "JM",
+        "CountryCodeISO3166Alpha3": "JAM"
+    },
+    {
+        "Country": "Cayman Islands",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "KY",
+        "CountryCodeISO3166Alpha3": "CYM"
+    },
+    {
+        "Country": "Central African Republic",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CF",
+        "CountryCodeISO3166Alpha3": "CAF"
+    },
+    {
+        "Country": "Chad",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TD",
+        "CountryCodeISO3166Alpha3": "TCD"
+    },
+    {
+        "Country": "Channel Islands",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "CQ",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "Chile",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CL",
+        "CountryCodeISO3166Alpha3": "CHL"
+    },
+    {
+        "Country": "China",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CN",
+        "CountryCodeISO3166Alpha3": "CHN"
+    },
+    {
+        "Country": "Christmas Island",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CX",
+        "CountryCodeISO3166Alpha3": "CXR"
+    },
+    {
+        "Country": "Cocos (Keeling) Islands",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "CC",
+        "CountryCodeISO3166Alpha3": "CCK"
+    },
+    {
+        "Country": "Colombia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CO",
+        "CountryCodeISO3166Alpha3": "COL"
+    },
+    {
+        "Country": "Comoros Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "KM",
+        "CountryCodeISO3166Alpha3": "COM"
+    },
+    {
+        "Country": "Cook Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CK",
+        "CountryCodeISO3166Alpha3": "COK"
+    },
+    {
+        "Country": "Corfu",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GR2",
+        "CountryCodeISO3166Alpha3": "GRC"
+    },
+    {
+        "Country": "Corsica",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "FR2",
+        "CountryCodeISO3166Alpha3": "FRA"
+    },
+    {
+        "Country": "Costa Rica",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CR",
+        "CountryCodeISO3166Alpha3": "CRI"
+    },
+    {
+        "Country": "Cote D`ivoire",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CI",
+        "CountryCodeISO3166Alpha3": "CIV"
+    },
+    {
+        "Country": "Crete",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GR3",
+        "CountryCodeISO3166Alpha3": "GRC"
+    },
+    {
+        "Country": "Croatia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "HR",
+        "CountryCodeISO3166Alpha3": "HRV"
+    },
+    {
+        "Country": "Cura\u00e7ao",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "CW",
+        "CountryCodeISO3166Alpha3": "CUW"
+    },
+    {
+        "Country": "Cyprus",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "CY",
+        "CountryCodeISO3166Alpha3": "CYP"
+    },
+    {
+        "Country": "Czech Republic",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "CZ",
+        "CountryCodeISO3166Alpha3": "CZE"
+    },
+    {
+        "Country": "Denmark",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "DK",
+        "CountryCodeISO3166Alpha3": "DNK"
+    },
+    {
+        "Country": "Djibouti",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "DJ",
+        "CountryCodeISO3166Alpha3": "DJI"
+    },
+    {
+        "Country": "Dominica",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "DM",
+        "CountryCodeISO3166Alpha3": "DMA"
+    },
+    {
+        "Country": "Dominican Republic",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "DO",
+        "CountryCodeISO3166Alpha3": "DOM"
+    },
+    {
+        "Country": "Dubai",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AE",
+        "CountryCodeISO3166Alpha3": "ARE"
+    },
+    {
+        "Country": "East Timor",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ID",
+        "CountryCodeISO3166Alpha3": "IDN"
+    },
+    {
+        "Country": "Ecuador",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "EC",
+        "CountryCodeISO3166Alpha3": "ECU"
+    },
+    {
+        "Country": "Egypt",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "EG",
+        "CountryCodeISO3166Alpha3": "EGY"
+    },
+    {
+        "Country": "El Salvador",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SV",
+        "CountryCodeISO3166Alpha3": "SLV"
+    },
+    {
+        "Country": "England",
+        "DestinationCode": "AreaOne",
+        "CountryCodeISO3166Alpha2": "GB1",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "Equatorial Guinea",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GQ",
+        "CountryCodeISO3166Alpha3": "GNQ"
+    },
+    {
+        "Country": "Eritrea",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ER",
+        "CountryCodeISO3166Alpha3": "ERI"
+    },
+    {
+        "Country": "Estonia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "EE",
+        "CountryCodeISO3166Alpha3": "EST"
+    },
+    {
+        "Country": "Ethiopia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ET",
+        "CountryCodeISO3166Alpha3": "ETH"
+    },
+    {
+        "Country": "Falkland Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "FK",
+        "CountryCodeISO3166Alpha3": "FLK"
+    },
+    {
+        "Country": "Faroe Islands",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "FO",
+        "CountryCodeISO3166Alpha3": "FRO"
+    },
+    {
+        "Country": "Fiji",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "FJ",
+        "CountryCodeISO3166Alpha3": "FJI"
+    },
+    {
+        "Country": "Finland",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "FI",
+        "CountryCodeISO3166Alpha3": "FIN"
+    },
+    {
+        "Country": "France",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "FR",
+        "CountryCodeISO3166Alpha3": "FRA"
+    },
+    {
+        "Country": "French Guiana",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GF",
+        "CountryCodeISO3166Alpha3": "GUF"
+    },
+    {
+        "Country": "French Polynesia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PF",
+        "CountryCodeISO3166Alpha3": "PYF"
+    },
+    {
+        "Country": "French Southern Territories",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TF",
+        "CountryCodeISO3166Alpha3": "ATF"
+    },
+    {
+        "Country": "Fuerteventura",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "FV",
+        "CountryCodeISO3166Alpha3": "FUV"
+    },
+    {
+        "Country": "Gabon",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GA",
+        "CountryCodeISO3166Alpha3": "GAB"
+    },
+    {
+        "Country": "Galapagos Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "EC",
+        "CountryCodeISO3166Alpha3": "ECU"
+    },
+    {
+        "Country": "Gambia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GM",
+        "CountryCodeISO3166Alpha3": "GMB"
+    },
+    {
+        "Country": "Gaza",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "IL",
+        "CountryCodeISO3166Alpha3": "ISR"
+    },
+    {
+        "Country": "Georgia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GE",
+        "CountryCodeISO3166Alpha3": "GEO"
+    },
+    {
+        "Country": "Germany",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "DE",
+        "CountryCodeISO3166Alpha3": "DEU"
+    },
+    {
+        "Country": "Ghana",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GH",
+        "CountryCodeISO3166Alpha3": "GHA"
+    },
+    {
+        "Country": "Gibraltar",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GI",
+        "CountryCodeISO3166Alpha3": "GIB"
+    },
+    {
+        "Country": "Goa",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "IN",
+        "CountryCodeISO3166Alpha3": "IND"
+    },
+    {
+        "Country": "Gozo",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "MT",
+        "CountryCodeISO3166Alpha3": "MLT"
+    },
+    {
+        "Country": "Gran Canaria",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES9",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Greece",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GR",
+        "CountryCodeISO3166Alpha3": "GRC"
+    },
+    {
+        "Country": "Greek Islands",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GR4",
+        "CountryCodeISO3166Alpha3": "GRC"
+    },
+    {
+        "Country": "Greenland",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GL",
+        "CountryCodeISO3166Alpha3": "GRL"
+    },
+    {
+        "Country": "Grenada",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "GD",
+        "CountryCodeISO3166Alpha3": "GRD"
+    },
+    {
+        "Country": "Guadeloupe",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "GP",
+        "CountryCodeISO3166Alpha3": "GLP"
+    },
+    {
+        "Country": "Guam",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GU",
+        "CountryCodeISO3166Alpha3": "GUM"
+    },
+    {
+        "Country": "Guatemala",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GT",
+        "CountryCodeISO3166Alpha3": "GTM"
+    },
+    {
+        "Country": "Guernsey",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GG",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "Guinea",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GN",
+        "CountryCodeISO3166Alpha3": "GIN"
+    },
+    {
+        "Country": "Guinea-bissau",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GW",
+        "CountryCodeISO3166Alpha3": "GNB"
+    },
+    {
+        "Country": "Guyana",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GY",
+        "CountryCodeISO3166Alpha3": "GUY"
+    },
+    {
+        "Country": "Haiti",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "HT",
+        "CountryCodeISO3166Alpha3": "HTI"
+    },
+    {
+        "Country": "Hawaii",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "US4",
+        "CountryCodeISO3166Alpha3": "USA"
+    },
+    {
+        "Country": "Heard Island and McDonald Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "HM",
+        "CountryCodeISO3166Alpha3": "HMD"
+    },
+    {
+        "Country": "Honduras",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "HN",
+        "CountryCodeISO3166Alpha3": "HND"
+    },
+    {
+        "Country": "Hong Kong",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "HK",
+        "CountryCodeISO3166Alpha3": "HKG"
+    },
+    {
+        "Country": "Hungary",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "HU",
+        "CountryCodeISO3166Alpha3": "HUN"
+    },
+    {
+        "Country": "Ibiza",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES3",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Iceland",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "IS",
+        "CountryCodeISO3166Alpha3": "ISL"
+    },
+    {
+        "Country": "India",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "IN",
+        "CountryCodeISO3166Alpha3": "IND"
+    },
+    {
+        "Country": "Indonesia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ID",
+        "CountryCodeISO3166Alpha3": "IDN"
+    },
+    {
+        "Country": "Isle Of Man",
+        "DestinationCode": "AreaOne",
+        "CountryCodeISO3166Alpha2": "IM",
+        "CountryCodeISO3166Alpha3": "IMN"
+    },
+    {
+        "Country": "Israel",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "IL",
+        "CountryCodeISO3166Alpha3": "ISR"
+    },
+    {
+        "Country": "Italy",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "IT",
+        "CountryCodeISO3166Alpha3": "ITA"
+    },
+    {
+        "Country": "Ivory Coast",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CI",
+        "CountryCodeISO3166Alpha3": "CIV"
+    },
+    {
+        "Country": "Jamaica",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "JM",
+        "CountryCodeISO3166Alpha3": "JAM"
+    },
+    {
+        "Country": "Japan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "JP",
+        "CountryCodeISO3166Alpha3": "JPN"
+    },
+    {
+        "Country": "Jersey",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "JE",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "Jordan",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "JO",
+        "CountryCodeISO3166Alpha3": "JOR"
+    },
+    {
+        "Country": "Jordan River",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "JO",
+        "CountryCodeISO3166Alpha3": "JOR"
+    },
+    {
+        "Country": "Kashmir",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "IN",
+        "CountryCodeISO3166Alpha3": "IND"
+    },
+    {
+        "Country": "Kazakhstan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "KZ",
+        "CountryCodeISO3166Alpha3": "KAZ"
+    },
+    {
+        "Country": "Kenya",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "KE",
+        "CountryCodeISO3166Alpha3": "KEN"
+    },
+    {
+        "Country": "Kiribati",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "KI",
+        "CountryCodeISO3166Alpha3": "KIR"
+    },
+    {
+        "Country": "Korea (Republic of)",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "KR",
+        "CountryCodeISO3166Alpha3": "KIR"
+    },
+    {
+        "Country": "Kos (Greek Island)",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GR5",
+        "CountryCodeISO3166Alpha3": "GRC"
+    },
+    {
+        "Country": "Kuwait",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "KW",
+        "CountryCodeISO3166Alpha3": "KWT"
+    },
+    {
+        "Country": "Kyrgyzstan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "KG",
+        "CountryCodeISO3166Alpha3": "KGZ"
+    },
+    {
+        "Country": "Lanzarote",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES6",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Lao People's Democratic Republic",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "LA",
+        "CountryCodeISO3166Alpha3": "LAO"
+    },
+    {
+        "Country": "Laos",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "LA",
+        "CountryCodeISO3166Alpha3": "LAO"
+    },
+    {
+        "Country": "Latvia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "LV",
+        "CountryCodeISO3166Alpha3": "LVA"
+    },
+    {
+        "Country": "Leeward Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "VI",
+        "CountryCodeISO3166Alpha3": "VIR"
+    },
+    {
+        "Country": "Lesotho",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "LS",
+        "CountryCodeISO3166Alpha3": "LSO"
+    },
+    {
+        "Country": "Liberia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "LR",
+        "CountryCodeISO3166Alpha3": "LBR"
+    },
+    {
+        "Country": "Libya",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "LY",
+        "CountryCodeISO3166Alpha3": "LBY"
+    },
+    {
+        "Country": "Libyan Arab Jamahiriya",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "LY",
+        "CountryCodeISO3166Alpha3": "LBY"
+    },
+    {
+        "Country": "Liechtenstein",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "LI",
+        "CountryCodeISO3166Alpha3": "LIE"
+    },
+    {
+        "Country": "Lithuania",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "LT",
+        "CountryCodeISO3166Alpha3": "LTU"
+    },
+    {
+        "Country": "Luxembourg",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "LU",
+        "CountryCodeISO3166Alpha3": "LUX"
+    },
+    {
+        "Country": "Macau",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MO",
+        "CountryCodeISO3166Alpha3": "MAC"
+    },
+    {
+        "Country": "Macedonia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "MK",
+        "CountryCodeISO3166Alpha3": "MKD"
+    },
+    {
+        "Country": "Madagascar",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MG",
+        "CountryCodeISO3166Alpha3": "MDG"
+    },
+    {
+        "Country": "Madeira",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "PT2",
+        "CountryCodeISO3166Alpha3": "PRT"
+    },
+    {
+        "Country": "Majorca",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES10",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Malawi",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MW",
+        "CountryCodeISO3166Alpha3": "MWI"
+    },
+    {
+        "Country": "Malaysia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MY",
+        "CountryCodeISO3166Alpha3": "MYS"
+    },
+    {
+        "Country": "Maldives",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MV",
+        "CountryCodeISO3166Alpha3": "MDV"
+    },
+    {
+        "Country": "Mali",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ML",
+        "CountryCodeISO3166Alpha3": "MLI"
+    },
+    {
+        "Country": "Mallorca",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES2",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Malta",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "MT",
+        "CountryCodeISO3166Alpha3": "MLT"
+    },
+    {
+        "Country": "Mariana Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GU",
+        "CountryCodeISO3166Alpha3": "GUM"
+    },
+    {
+        "Country": "Marshall Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MH",
+        "CountryCodeISO3166Alpha3": "MHL"
+    },
+    {
+        "Country": "Martinique",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "MQ",
+        "CountryCodeISO3166Alpha3": "MTQ"
+    },
+    {
+        "Country": "Mauritania",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MR",
+        "CountryCodeISO3166Alpha3": "MRT"
+    },
+    {
+        "Country": "Mauritius",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MU",
+        "CountryCodeISO3166Alpha3": "MUS"
+    },
+    {
+        "Country": "Mayotte",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "YT",
+        "CountryCodeISO3166Alpha3": "MYT"
+    },
+    {
+        "Country": "Menorca",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES4",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Mexico",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "MX",
+        "CountryCodeISO3166Alpha3": "MEX"
+    },
+    {
+        "Country": "Micronesia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "FM",
+        "CountryCodeISO3166Alpha3": "FSM"
+    },
+    {
+        "Country": "Midway Island",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "UM",
+        "CountryCodeISO3166Alpha3": null
+    },
+    {
+        "Country": "Minorca",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES7",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Moldova",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "MD",
+        "CountryCodeISO3166Alpha3": "MDA"
+    },
+    {
+        "Country": "Monaco",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "MC",
+        "CountryCodeISO3166Alpha3": "MCO"
+    },
+    {
+        "Country": "Mongolia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MN",
+        "CountryCodeISO3166Alpha3": "MNG"
+    },
+    {
+        "Country": "Montenegro",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ME",
+        "CountryCodeISO3166Alpha3": "MNE"
+    },
+    {
+        "Country": "Montserrat",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "MS",
+        "CountryCodeISO3166Alpha3": "MSR"
+    },
+    {
+        "Country": "Morocco",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MA",
+        "CountryCodeISO3166Alpha3": "MAR"
+    },
+    {
+        "Country": "Mozambique",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MZ",
+        "CountryCodeISO3166Alpha3": "MOZ"
+    },
+    {
+        "Country": "Myanmar",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MM",
+        "CountryCodeISO3166Alpha3": "BUR"
+    },
+    {
+        "Country": "Namibia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NA",
+        "CountryCodeISO3166Alpha3": "NAM"
+    },
+    {
+        "Country": "Nauru",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NR",
+        "CountryCodeISO3166Alpha3": "NRU"
+    },
+    {
+        "Country": "Nepal",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NP",
+        "CountryCodeISO3166Alpha3": "NPL"
+    },
+    {
+        "Country": "Netherlands",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "NL",
+        "CountryCodeISO3166Alpha3": "NLD"
+    },
+    {
+        "Country": "Netherlands Antilles",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "AN",
+        "CountryCodeISO3166Alpha3": null
+    },
+    {
+        "Country": "Nevis Island",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "KN",
+        "CountryCodeISO3166Alpha3": null
+    },
+    {
+        "Country": "New Caledonia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NC",
+        "CountryCodeISO3166Alpha3": "NCL"
+    },
+    {
+        "Country": "New Zealand",
+        "DestinationCode": "AreaFour",
+        "CountryCodeISO3166Alpha2": "NZ",
+        "CountryCodeISO3166Alpha3": "NZL"
+    },
+    {
+        "Country": "Nicaragua",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NI",
+        "CountryCodeISO3166Alpha3": "NIC"
+    },
+    {
+        "Country": "Niger",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NE",
+        "CountryCodeISO3166Alpha3": "NER"
+    },
+    {
+        "Country": "Nigeria",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NG",
+        "CountryCodeISO3166Alpha3": "NGA"
+    },
+    {
+        "Country": "Niue",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NU",
+        "CountryCodeISO3166Alpha3": "NIU"
+    },
+    {
+        "Country": "Norfolk Island",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "NF",
+        "CountryCodeISO3166Alpha3": "NFK"
+    },
+    {
+        "Country": "Northern Ireland",
+        "DestinationCode": "AreaOne",
+        "CountryCodeISO3166Alpha2": "GB2",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "Northern Marianas",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MP",
+        "CountryCodeISO3166Alpha3": "MNP"
+    },
+    {
+        "Country": "Norway",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "NO",
+        "CountryCodeISO3166Alpha3": "NOR"
+    },
+    {
+        "Country": "Oman",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "OM",
+        "CountryCodeISO3166Alpha3": "OMN"
+    },
+    {
+        "Country": "Pakistan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PK",
+        "CountryCodeISO3166Alpha3": "PAK"
+    },
+    {
+        "Country": "Palau",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PW",
+        "CountryCodeISO3166Alpha3": "PLW"
+    },
+    {
+        "Country": "Panama",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PA",
+        "CountryCodeISO3166Alpha3": "PAN"
+    },
+    {
+        "Country": "Papua New Guinea",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PG",
+        "CountryCodeISO3166Alpha3": "PNG"
+    },
+    {
+        "Country": "Paraguay",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PY",
+        "CountryCodeISO3166Alpha3": "PRY"
+    },
+    {
+        "Country": "Peru",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PE",
+        "CountryCodeISO3166Alpha3": "PER"
+    },
+    {
+        "Country": "Philippines",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PH",
+        "CountryCodeISO3166Alpha3": "PHL"
+    },
+    {
+        "Country": "Pitcairn Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PN",
+        "CountryCodeISO3166Alpha3": "PCN"
+    },
+    {
+        "Country": "Poland",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "PL",
+        "CountryCodeISO3166Alpha3": "POL"
+    },
+    {
+        "Country": "Portugal",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "PT",
+        "CountryCodeISO3166Alpha3": "PRT"
+    },
+    {
+        "Country": "Puerto Rico",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "PR",
+        "CountryCodeISO3166Alpha3": "PRI"
+    },
+    {
+        "Country": "Qatar",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "QA",
+        "CountryCodeISO3166Alpha3": "QAT"
+    },
+    {
+        "Country": "Republic of Ireland",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "IE",
+        "CountryCodeISO3166Alpha3": "IRL"
+    },
+    {
+        "Country": "R\u00e9union",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "RE",
+        "CountryCodeISO3166Alpha3": "REU"
+    },
+    {
+        "Country": "Rhodes (Greek Island)",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "GR6",
+        "CountryCodeISO3166Alpha3": "GRC"
+    },
+    {
+        "Country": "Rodriguez Island",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MU1",
+        "CountryCodeISO3166Alpha3": "MUS"
+    },
+    {
+        "Country": "Romania",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "RO",
+        "CountryCodeISO3166Alpha3": "ROU"
+    },
+    {
+        "Country": "Russia (east of urals)",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "RU",
+        "CountryCodeISO3166Alpha3": "RUS"
+    },
+    {
+        "Country": "Russia (west of urals)",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "RU",
+        "CountryCodeISO3166Alpha3": "RUS"
+    },
+    {
+        "Country": "Rwanda",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "RW",
+        "CountryCodeISO3166Alpha3": "RWA"
+    },
+    {
+        "Country": "Sabah",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MY",
+        "CountryCodeISO3166Alpha3": "MYS"
+    },
+    {
+        "Country": "Saint Barthelemy",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "BL",
+        "CountryCodeISO3166Alpha3": "BLM"
+    },
+    {
+        "Country": "Saint Kitts And Nevis",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "KN",
+        "CountryCodeISO3166Alpha3": "KNA"
+    },
+    {
+        "Country": "Saint Lucia",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "LC",
+        "CountryCodeISO3166Alpha3": "LCA"
+    },
+    {
+        "Country": "Saint Vincent And The Grenadines",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "VC",
+        "CountryCodeISO3166Alpha3": "VCT"
+    },
+    {
+        "Country": "Saipan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GU",
+        "CountryCodeISO3166Alpha3": "GUM"
+    },
+    {
+        "Country": "Samoa (Western)",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "WS",
+        "CountryCodeISO3166Alpha3": "WSM"
+    },
+    {
+        "Country": "San Marino",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "SM",
+        "CountryCodeISO3166Alpha3": "SMR"
+    },
+    {
+        "Country": "S\u00e3o Tom\u00e9 and Pr\u00edncipe",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ST",
+        "CountryCodeISO3166Alpha3": "STP"
+    },
+    {
+        "Country": "Sarawak",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MY",
+        "CountryCodeISO3166Alpha3": "MYS"
+    },
+    {
+        "Country": "Sardinia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "IT",
+        "CountryCodeISO3166Alpha3": "ITA"
+    },
+    {
+        "Country": "Saudi Arabia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SA",
+        "CountryCodeISO3166Alpha3": "SAU"
+    },
+    {
+        "Country": "Scilly Isles",
+        "DestinationCode": "AreaOne",
+        "CountryCodeISO3166Alpha2": "GB3",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "Scotland",
+        "DestinationCode": "AreaOne",
+        "CountryCodeISO3166Alpha2": "GB4",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "Senegal",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SN",
+        "CountryCodeISO3166Alpha3": "SEN"
+    },
+    {
+        "Country": "Serbia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "RS",
+        "CountryCodeISO3166Alpha3": "SRB"
+    },
+    {
+        "Country": "Seychelles",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SC",
+        "CountryCodeISO3166Alpha3": "SYC"
+    },
+    {
+        "Country": "Sicily",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "IT",
+        "CountryCodeISO3166Alpha3": "ITA"
+    },
+    {
+        "Country": "Sierra Leone",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SL",
+        "CountryCodeISO3166Alpha3": "SLE"
+    },
+    {
+        "Country": "Singapore",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "SG",
+        "CountryCodeISO3166Alpha3": "SGP"
+    },
+    {
+        "Country": "Slovakia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "SK",
+        "CountryCodeISO3166Alpha3": "SVK"
+    },
+    {
+        "Country": "Slovenia",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "SI",
+        "CountryCodeISO3166Alpha3": "SVN"
+    },
+    {
+        "Country": "Solomon Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SB",
+        "CountryCodeISO3166Alpha3": "SLB"
+    },
+    {
+        "Country": "South Africa",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ZA",
+        "CountryCodeISO3166Alpha3": "ZAF"
+    },
+    {
+        "Country": "South Georgia And The South Sandwich Islands",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "GS",
+        "CountryCodeISO3166Alpha3": "SGS"
+    },
+    {
+        "Country": "Spain",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Sri Lanka",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "LK",
+        "CountryCodeISO3166Alpha3": "LKA"
+    },
+    {
+        "Country": "St Helena",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SH",
+        "CountryCodeISO3166Alpha3": "SHN"
+    },
+    {
+        "Country": "St Kitts And Nevis",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "KN",
+        "CountryCodeISO3166Alpha3": "KNA"
+    },
+    {
+        "Country": "St Lucia",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "LC",
+        "CountryCodeISO3166Alpha3": "LCA"
+    },
+    {
+        "Country": "St Martin",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "MF",
+        "CountryCodeISO3166Alpha3": "MAF"
+    },
+    {
+        "Country": "St Pierre And Miquelon",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "PM",
+        "CountryCodeISO3166Alpha3": "SPM"
+    },
+    {
+        "Country": "St Vincent And The Grenadines",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "VC",
+        "CountryCodeISO3166Alpha3": "VCT"
+    },
+    {
+        "Country": "St. Barthelemy",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "BL",
+        "CountryCodeISO3166Alpha3": "BLM"
+    },
+    {
+        "Country": "St. Croix",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "VI",
+        "CountryCodeISO3166Alpha3": "VIR"
+    },
+    {
+        "Country": "St. John - Canada",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "CA1",
+        "CountryCodeISO3166Alpha3": "CAN"
+    },
+    {
+        "Country": "St. Thomas",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "VI",
+        "CountryCodeISO3166Alpha3": "VIR"
+    },
+    {
+        "Country": "Suriname",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SR",
+        "CountryCodeISO3166Alpha3": "SUR"
+    },
+    {
+        "Country": "Svalbard Islands",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "NO",
+        "CountryCodeISO3166Alpha3": "NOR"
+    },
+    {
+        "Country": "Swaziland",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "SZ",
+        "CountryCodeISO3166Alpha3": "SWZ"
+    },
+    {
+        "Country": "Sweden",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "SE",
+        "CountryCodeISO3166Alpha3": "SWE"
+    },
+    {
+        "Country": "Switzerland",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "CH",
+        "CountryCodeISO3166Alpha3": "CHE"
+    },
+    {
+        "Country": "Tahiti",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "PF",
+        "CountryCodeISO3166Alpha3": "PYF"
+    },
+    {
+        "Country": "Taiwan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TW",
+        "CountryCodeISO3166Alpha3": "TWN"
+    },
+    {
+        "Country": "Tajikistan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TJ",
+        "CountryCodeISO3166Alpha3": "TJK"
+    },
+    {
+        "Country": "Tanzania",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TZ",
+        "CountryCodeISO3166Alpha3": "TZA"
+    },
+    {
+        "Country": "Tasmania",
+        "DestinationCode": "AreaFour",
+        "CountryCodeISO3166Alpha2": "AU2",
+        "CountryCodeISO3166Alpha3": "ARE"
+    },
+    {
+        "Country": "Tenerife",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "ES8",
+        "CountryCodeISO3166Alpha3": "ESP"
+    },
+    {
+        "Country": "Thailand",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TH",
+        "CountryCodeISO3166Alpha3": "THA"
+    },
+    {
+        "Country": "Timor-Leste",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "TL",
+        "CountryCodeISO3166Alpha3": "TLS"
+    },
+    {
+        "Country": "Togo",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TG",
+        "CountryCodeISO3166Alpha3": "TGO"
+    },
+    {
+        "Country": "Tokelau",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TK",
+        "CountryCodeISO3166Alpha3": "TKL"
+    },
+    {
+        "Country": "Tonga",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TO",
+        "CountryCodeISO3166Alpha3": "TON"
+    },
+    {
+        "Country": "Trinidad And Tobago",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "TT",
+        "CountryCodeISO3166Alpha3": "TTO"
+    },
+    {
+        "Country": "Tunisia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TN",
+        "CountryCodeISO3166Alpha3": "TUN"
+    },
+    {
+        "Country": "Turkey",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "TR",
+        "CountryCodeISO3166Alpha3": "TUR"
+    },
+    {
+        "Country": "Turkmenistan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TM",
+        "CountryCodeISO3166Alpha3": "TKM"
+    },
+    {
+        "Country": "Turks And Caicos Islands",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "TC",
+        "CountryCodeISO3166Alpha3": "TCA"
+    },
+    {
+        "Country": "Tuvalu",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TV",
+        "CountryCodeISO3166Alpha3": "TUV"
+    },
+    {
+        "Country": "UAE",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AE",
+        "CountryCodeISO3166Alpha3": "ARE"
+    },
+    {
+        "Country": "Uganda",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "UG",
+        "CountryCodeISO3166Alpha3": "UGA"
+    },
+    {
+        "Country": "Ukraine",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "UG",
+        "CountryCodeISO3166Alpha3": "UGA"
+    },
+    {
+        "Country": "United Arab Emirates",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "AE",
+        "CountryCodeISO3166Alpha3": "ARE"
+    },
+    {
+        "Country": "United Kingdom",
+        "DestinationCode": "AreaOne",
+        "CountryCodeISO3166Alpha2": "GB",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "United States Minor Outlying Islands",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "US1",
+        "CountryCodeISO3166Alpha3": "USA"
+    },
+    {
+        "Country": "United States of America",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "US",
+        "CountryCodeISO3166Alpha3": "USA"
+    },
+    {
+        "Country": "Uruguay",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "UY",
+        "CountryCodeISO3166Alpha3": "URY"
+    },
+    {
+        "Country": "USA",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "US",
+        "CountryCodeISO3166Alpha3": "USA"
+    },
+    {
+        "Country": "Uzbekistan",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "UZ",
+        "CountryCodeISO3166Alpha3": "UZB"
+    },
+    {
+        "Country": "Vanuatu",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "VU",
+        "CountryCodeISO3166Alpha3": "VUT"
+    },
+    {
+        "Country": "Vatican City",
+        "DestinationCode": "AreaTwo",
+        "CountryCodeISO3166Alpha2": "VA",
+        "CountryCodeISO3166Alpha3": null
+    },
+    {
+        "Country": "Venezuela",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "VE",
+        "CountryCodeISO3166Alpha3": "VEN"
+    },
+    {
+        "Country": "Vietnam",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "VN",
+        "CountryCodeISO3166Alpha3": "VNM"
+    },
+    {
+        "Country": "Virgin Islands (UK)",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "VG",
+        "CountryCodeISO3166Alpha3": "VGB"
+    },
+    {
+        "Country": "Virgin Islands (US)",
+        "DestinationCode": "AreaFive",
+        "CountryCodeISO3166Alpha2": "VI",
+        "CountryCodeISO3166Alpha3": "VIR"
+    },
+    {
+        "Country": "Wake Island",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "MH",
+        "CountryCodeISO3166Alpha3": "MHL"
+    },
+    {
+        "Country": "Wales",
+        "DestinationCode": "AreaOne",
+        "CountryCodeISO3166Alpha2": "GB5",
+        "CountryCodeISO3166Alpha3": "GBR"
+    },
+    {
+        "Country": "Wallis And Futuna",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "WF",
+        "CountryCodeISO3166Alpha3": "WLF"
+    },
+    {
+        "Country": "West Bank",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "IL",
+        "CountryCodeISO3166Alpha3": "ISR"
+    },
+    {
+        "Country": "Western Sahara",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "EH",
+        "CountryCodeISO3166Alpha3": "ESH"
+    },
+    {
+        "Country": "Yemen",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "YE",
+        "CountryCodeISO3166Alpha3": "YEM"
+    },
+    {
+        "Country": "Zaire",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "CD",
+        "CountryCodeISO3166Alpha3": "COD"
+    },
+    {
+        "Country": "Zambia",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ZM",
+        "CountryCodeISO3166Alpha3": "ZMB"
+    },
+    {
+        "Country": "Zanzibar",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "TZ",
+        "CountryCodeISO3166Alpha3": "TZA"
+    },
+    {
+        "Country": "Zimbabwe",
+        "DestinationCode": "AreaThree",
+        "CountryCodeISO3166Alpha2": "ZW",
+        "CountryCodeISO3166Alpha3": "ZWE"
+    }
+]
