@@ -1,16 +1,18 @@
 #### What is PHP
 
--   php is a scripting language like js, not a programming language
--   programming language = compile
--   scripting language = interpreted
+- php is a scripting language like js, not a programming language
+- programming language = compile
+- scripting language = interpreted
 
--   browser make request->web server listen to it->try to find index.php->then interpret the code to machine code | if no found index.php it shows all the files and directories as list
+- browser make request->web server listen to it->try to find index.php->then interpret the code to machine code | if no found index.php
+ it shows all the files and directories as list
 
--   static keyword can use for caching the values.
+- static keyword can use for caching the values.
 
--   users can input scripts like `<script>alert('Hello');</script>` into input fields.
--   Hackers can input malicious code from another server to the user’s web browser, the risk is higher. This type of attack is called `cross-site scripting (XSS)` attack.
--   Therefore, before displaying user input on a webpage, you should always escape the data. To do that, you use the `htmlspecialchars()` function:
+- users can input scripts like `<script>alert('Hello');</script>` into input fields.
+- Hackers can input malicious code from another server to the user’s web browser, the risk is higher. 
+  This type of attack is called `cross-site scripting (XSS)` attack.
+- Therefore, before displaying user input on a webpage, you should always escape the data. To do that, you use the `htmlspecialchars()` function:
 
 ```php
 <?php
@@ -31,11 +33,11 @@ if (isset($_POST['name'], $_POST['email'])) {
 
 ```php
 <?php
-$_POST['email'] = 'example@phptutorial.net';
-if(isset($_POST['email'])) // return true
+	$_POST['email'] = 'example@phptutorial.net';
+	if(isset($_POST['email'])) // return true
 
-$_POST['email'] = 'example@phptutorial.net';
-if(filter_has_var(INPUT_POST, 'email')) // return false //check request body
+	$_POST['email'] = 'example@phptutorial.net';
+	if(filter_has_var(INPUT_POST, 'email')) // return false //check request body
 
 /**
  * Use the filter_has_var() function to check if a variable exists in a specified type, including INPUT_POST, INPUT_GET, INPUT_COOKIE, INPUT_SERVER, or INPUT_ENV.
@@ -43,7 +45,7 @@ if(filter_has_var(INPUT_POST, 'email')) // return false //check request body
 ?>
 ```
 
--   Use `filter_input()` and `filter_var()` functions to validate and sanitize data.
+- Use `filter_input()` and `filter_var()` functions to validate and sanitize data.
 
 #### `filter_var()` for sanitize and validate data
 
@@ -99,22 +101,21 @@ if (null !== $term_html) {
 
 #### `filter_input` vs. `filter_var`
 
--   If a variable doesn’t exist, the `filter_input()` function returns `null` while the `filter_var()` function returns an `empty string` and issues a `notice of an undefined index`.
+- If a variable doesn’t exist, the `filter_input()` function returns `null` while the `filter_var()` function returns an `empty string` and issues a `notice of an undefined index`.
 
--   Also, the `filter_input()` function doesn’t get the current values of the `$_GET`, `$_POST`, … superglobal variables. Instead, it uses the `original values submitted in the HTTP request`. For example:
+- Also, the `filter_input()` function doesn’t get the current values of the `$_GET`, `$_POST`, … superglobal variables. Instead, it uses the `original values submitted in the HTTP request`. For example:
 
 ```php
 <?php
+	$_GET['term'] = 'PHP'; // doesn't have any effect on INPUT_GET
+	$term = filter_input(INPUT_GET, 'term', FILTER_SANITIZE_SPECIAL_CHARS);
 
-$_GET['term'] = 'PHP'; // doesn't have any effect on INPUT_GET
-$term = filter_input(INPUT_GET, 'term', FILTER_SANITIZE_SPECIAL_CHARS);
+	var_dump($term); //NULL
 
-var_dump($term); //NULL
+	<?php
 
-<?php
+	$_GET['term'] = 'PHP';
+	$term = filter_var($_GET['term'], FILTER_SANITIZE_SPECIAL_CHARS);
 
-$_GET['term'] = 'PHP';
-$term = filter_var($_GET['term'], FILTER_SANITIZE_SPECIAL_CHARS);
-
-var_dump($term);//PHP
+	var_dump($term);//PHP
 ```
