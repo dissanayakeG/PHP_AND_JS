@@ -1,10 +1,7 @@
 - 20/12/2024
 
 # JS in nutshell
-
-## Forgettable points
-
-### Fundamentals
+## Fundamentals
 
 - Variables cannot start with digit,special characters
 - camelCase by convention
@@ -66,7 +63,7 @@ Static data is the data whose size is fixed at compile time
 
 - 21/12/2024
 
-### JavaScript Arithmetic Operators
+#### Arithmetic Operators
 
 - in (- , \*, /) If either value is not a number, the JavaScript engine implicitly converts it into a number using the `Number()` function.
 - If the value is an object, Js use object”s `valueOf` function, if it is not exists Js use `toString` function of the object.
@@ -118,13 +115,26 @@ add(10); // 1
 add(10, 20); // 2
 add(10, 20, 30); // 3
 ```
+- Variable hoisting means the JavaScript engine moves the variable declarations to the top of the script, this behave differently for `var` and `let`
+
+ ```javascript
+  console.log(counter);// 👉 undefined
+  var counter = 1;
+
+  console.log(counter); //"ReferenceError: Cannot access 'counter' before initialization
+  let counter = 1;
+```
+- During the creation phase of the global execution context, the JavaScript engine places the variable `counter` in the memory and initializes its value to `undefined`.
+- JavaScript engine hoists the variable declarations that use the `let` keyword. However, it doesn’t initialize the `let` variables.
+- The JavaScript engine doesn’t hoist the function expressions, arrow functions and class expressions .
+    
 - Function hoisting is a mechanism in which the JavaScript engine physically moves function declarations
     to the top of the code before executing them.
 - In JavaScript, functions are first-class citizens, meaning they can be stored in variables, passed
     as arguments, and returned from other functions.
 - In JS, arguments are passed by value by default, so changes to arguments do not reflect outside,
     like pass by reference; pass by reference is not available in JS.
-    - But, if you pass a non-primitive value (object), then it refers to the same value, so changes
+- But, if you pass a non-primitive value (object), then it refers to the same value, so changes
     to that will be reflected outside of the function.
 
 ```javascript
@@ -164,7 +174,9 @@ console.log(styles); //{ color: 'red', }
 
 23/12/2024
 
-### JavaScript constructor functions
+## Objects & Prototypes
+### Constructor functions
+
 ```javascript
 function Person(firstName, lastName) { //Note Uppercase P
     // this = {}; initially this empty object is created
@@ -185,6 +197,7 @@ console.log(person.getFullName());//John Doe
   `let person = Person('John','Doe');` But,
 -  the `Person` just executes like a regular function. Therefore, the `this` inside the `Person` function doesn’t bind to the `person` variable but the [global object](https://www.javascripttutorial.net/es-next/javascript-globalthis/).
 `console.log(person.firstName); //TypeError: Cannot read property 'firstName' of undefined`
+
 ```javascript
 function Person(firstName, lastName) {
     if (!new.target) {
@@ -198,8 +211,29 @@ let person = Person("John", "Doe");
 console.log(person.firstName);
 ```
 
+```javascript
+function Person(name) {
+    this.name = name;
+}
+let john = new Person('John');//define type using new keyword and 'this' refers to local context //call as a constructor
+console.log(john.name); // john 
+Person('Lily'); //this will call Person as a regular function and 'this' refers to globalThis
+console.log(globalThis.name);//Lily
+
+//using new.target to ensure Person is called with new keyword.
+function Person(name) {
+    if (!new.target) { //undefined if called normally, else return a reference to the constructor.
+        throw "must use new operator with Person";
+    }
+    this.name = name;
+}
+let john = new Person('John');
+console.log(john.name); // john
+Person('Lily'); //Uncaught must use new operator with Person
+```
+
 24-25/12/2024
-### JavaScript Objects
+### Object prototype
 
 - Every object has its own property called a `prototype`, objects can inherit features from one another via `prototypes`
 - Because the `prototype` itself is also another object, the `prototype` has its own `prototype`.
@@ -216,6 +250,7 @@ function Person(firstName, lastName) { //A Constructor function
     this.firstName = firstName;
 }
 console.log(Person.prototype.constructor === Person) //true
+let p = Person('Alex'); //if we call without new keyword, the constructor function behaves like a regular function.
 ```
 - JavaScript links the `Person.prototype` object to the `Object.prototype` object via the `[[Prototype]]`, which is
   known as a `prototype linkage`.
@@ -300,19 +335,60 @@ console.log('The net price of a ' + product.name + ' is ' + product.netPrice.toF
 - A property is enumerable if it has the `enumerable` attribute set to `true`. The `obj.propertyIsEnumerable()` determines whether or not a property is enumerabl
 - A property created via a simple assignment or a property initializer is enumerable.
 - A property that is directly defined on an object is an own property.
-- The `obj.hasOwnProperty()` method determines whether or not a property is own.
+- The `obj.hasOwnProperty()` method determines whether or not a property is own. //`console.log(product.hasOwnProperty('ssn')); // => false`
+- Computed properties allow you to use the values of expressions as property names of an object.
+```javascript
+let propertyName = 'dynamicPropertyName'; 
+const obj = { [propertyName] : value }
+obj.dynamicPropertyName
 
+const createObject = (key, value) => { 
+    return { [key]: value, };
+};
+const person = createObject('name', 'John'); 
+console.log(person); //{ name: 'John' }
+```
 
+## Classes (ES6 - 2015)
+### private properties/methods static properties/methods
 
+```javascript
+class Person {
+  static count = 0;
+  #firstName; //define private properties
+  #lastName;
+  constructor(firstName, lastName) {
+    Person.count = 1; //or this.constructor.count = 1 to access static properties
+    this.#firstName = Person.#validate(firstName); //access static methods
+    this.#lastName = Person.#validate(lastName);
+  }
+  getFullName(format = true) {
+    return format ? this.#firstLast() : this.#lastFirst();
+  }
+  static #validate(name) {
+    if (typeof name === 'string') {
+      let str = name.trim();
+      if (str.length >= 3) {
+        return str;
+      }
+    }
+    throw 'The name must be a string with at least 3 characters';
+  }
 
+  #firstLast() {
+    return `${this.#firstName} ${this.#lastName}`;
+  }
+  #lastFirst() {
+    return `${this.#lastName}, ${this.#firstName}`;
+  }
+}
 
+let person = new Person('John', 'Doe');
+console.log(person.getFullName());
+```
 
-
-
-
-
-
-
+## Advanced Functions
+- In JavaScript, all functions are objects and  they are instances of the `Function` type
 
 
 
