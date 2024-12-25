@@ -112,7 +112,7 @@ if (null !== $term_html) {
 
 	var_dump($term); //NULL
 
-	<?php
+<?php
 
 	$_GET['term'] = 'PHP';
 	$term = filter_var($_GET['term'], FILTER_SANITIZE_SPECIAL_CHARS);
