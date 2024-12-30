@@ -597,7 +597,105 @@ for (let num of nums) {
 
 - The `for...in` iterates over all `enumerable properties of an object`. It doesn't iterate over a collection such as `Array`, `Map` or `Set`.
 
+## Modules
+- A module is a JavaScript file that executes in `strict mode`. It means that any `variables` or `functions` declared in the module won’t be added automatically to the `global scope`.
+- Use the `export` statement to export variables, functions, and classes.
+- Use the `import` statement to import variables, functions, and classes from other modules.
+- Use `type="module"` in the script tag to instruct the web browser to load a JavaScript file as a module.
 
+```javascript
+//lib.js
+function display(message) {...}
+export { display };
+
+//When exporting a value using a named export, you can rename it like this
+export { display as MyDisplay };
+
+//index.js
+import { display } from './lib.js';
+
+//modules that import the value may also rename it when importing
+import { display as Mydisplay } from './lib.js';
+
+
+//index.html
+<script src="js/index.js" type="module"></script>
+```
+- A module can have `multiple named exports` but `only one default export`.
+- It’s possible to combine the variable/function/class declaration, and export in a single statement.
+- Exporting multiple variables `export { MIN, MAX, count };`.
+- When importing a default export, you don’t need to place the variable inside curly braces.
+- When importing a default export, you can assign it any names you want when you import it.
+
+```javascript
+let message = 'Hi';
+export { default as message };
+import message from 'module.js';
+
+```
+- Module support Re-exporting
+- Namespace import
+```javascript
+import * as name from 'module.js';
+name.myVariable
+name.myFunction
+name.myClass
+name.default //If the importing module has a default export
+
+//You cannot access default exports using it's name
+
+export default function sayHi() {
+  alert('Hi');
+}
+import * as greeting from './greeting.js';
+greeting.sayHi(); //Uncaught TypeError: greeting.sayHi is not a function
+```
+- The `import()` allows you to dynamically import a module when needed.
+- The `import()` returns a `Promise` that will be fulfilled once the module is loaded completely.
+- Since the import() returns a Promise, you can use the `async/await`.
+- To load multiple modules dynamically, you can use the `Promise.all()` method.
+
+```javascript
+const btn = document.querySelector('.btn');
+
+btn.addEventListener('click', () => {
+  import('./greeting.js')
+    .then((greeting) => {
+      greeting.sayHi();
+    })
+    .catch((error) => {
+      console.error(error);
+    });
+});
+```
+
+#### A top-level await module
+- A top-level await module acts like an `async` function.
+
+```javascript
+//index.html uses app.mjs, app.mjs uses user.mjs, user.mjs calls and API and fetch Json data
+
+//index.html
+<script type="module" src="app.mjs"></script>
+
+//user.mjs
+const url = 'https://jsonplaceholder.typicode.com/users';
+const response = await fetch(url);
+let users = await response.json();
+export { users };
+
+//app.mjs
+import { users } from './user.mjs';
+function render(users) {...}
+
+let container = document.querySelector('.container');
+
+try {
+  container.innerHTML = render(users);
+} catch (error) {
+  container.innerHTML = error;
+}
+```
 
 
 
