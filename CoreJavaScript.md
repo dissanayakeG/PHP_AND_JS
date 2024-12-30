@@ -3,6 +3,11 @@
 # JS in nutshell
 ## Fundamentals
 
+- In 1995, JavaScript was developed by [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich), a Netscape developer. Initially named Mocha, it was later renamed to LiveScript.
+- Three main parts in JS - ECMAScript | DOM | BOM
+
+### Variables
+
 - Variables cannot start with digit,special characters
 - camelCase by convention
 - Dynamically typed (don’t need to explicitly specify the variable’s type)
@@ -39,7 +44,7 @@ template literal and string interpolation --> console.log(`Hi, I'm ${name}.`)
 - To access the last character of the string --> console.log(str[str.length -1]) // first --> str[0] OR str.charAt(0)
 - Converting values to string --> String(n); | ” + n | n.toString() --> toString() method doesn’t work for undefined and null
 
-#### [Primitive vs. Reference Values](https://www.javascripttutorial.net/javascript-primitive-vs-reference-values/ "JavaScript Primitive vs. Reference Values")
+### [Primitive vs. Reference Values](https://www.javascripttutorial.net/javascript-primitive-vs-reference-values/ "JavaScript Primitive vs. Reference Values")
 
 Static data is the data whose size is fixed at compile time
 
@@ -52,7 +57,7 @@ Static data is the data whose size is fixed at compile time
 
 ![stackAndHeapInJs.png](./stackAndHeapInJs.png)
 
-#### Arrays
+### Arrays
 
 - Note that if you use the `Array()` constructor to create an array and pass a `single number` into it, you are creating an array with an initial size.
 - Appending an element --> array.push
@@ -63,7 +68,7 @@ Static data is the data whose size is fixed at compile time
 
 - 21/12/2024
 
-#### Arithmetic Operators
+### Arithmetic Operators
 
 - in (- , \*, /) If either value is not a number, the JavaScript engine implicitly converts it into a number using the `Number()` function.
 - If the value is an object, Js use object”s `valueOf` function, if it is not exists Js use `toString` function of the object.
@@ -389,6 +394,218 @@ console.log(person.getFullName());
 
 ## Advanced Functions
 - In JavaScript, all functions are objects and  they are instances of the `Function` type
+
+28/12/2024
+- typically, a local variable only exists during the function’s execution.
+- A closure is a function that preserves the outer scope in its inner scope.
+
+```javascript
+for (var index = 1; index <= 3; index++) {
+    setTimeout(function () {
+        console.log('after ' + index + ' second(s):' + index);
+    }, index * 1000);
+}
+after 4 second(s):4
+after 4 second(s):4
+after 4 second(s):4
+//By the time the first callback executes (after 1000ms), the loop has already completed, and `index` is `4`.
+//Fix 1: use IIFE for versions older that ES6 (immediately-invoked-function-expression)
+//Fix 2: use let keyword in ES6/Lexical scoping
+```
+```javascript
+function Car() {
+  this.speed = 0;
+
+  this.speedUp = function (speed) {
+    this.speed = speed;
+    setTimeout(function () {
+      console.log(this.speed); //undefined
+    }, 1000);
+  };
+}
+
+let car = new Car();
+car.speedUp(50);
+
+//undefined, inside an anonymous function, `this` doesn't inherit the `this` value from the surrounding method. 							            
+//Instead, it defaults to the global object (`window` or `global`) in non-strict mode or `undefined` in strict mode.
+//to fix this, use arrow functions OR assign `this` to a variable. let self=this and self.speed
+```
+- An arrow function doesn’t have the `arguments` object.
+```javascript
+function show() {
+  return (x) => x + arguments[0];
+}
+
+let display = show(10, 20);
+let result = display(5);
+console.log(result); // 15, this `arguments` object belongs to the `show()` function, not the arrow function.
+```
+- An arrow function doesn’t have its binding to `this` or `super`. they inherit `this` from the parent scope.
+- An arrow function doesn’t have `arguments` object, `new.target` keyword, and `prototype` property.
+- You should not use it as an event handler, a method of an object literal, a prototype method, or when you have a function that uses the `arguments` object.
+- A callback is a function passed into another function as an argument to be executed later.
+- A high-order function is a function that accepts another function as an argument.
+
+29/12/2024
+## Promises & Async/Await
+```javascript
+function getUsers() { 
+    return new Promise((resolve, reject) => {
+        //Code to be executed. EX) API calld, DB calls
+    })
+}
+
+function onFulfilled(users) { console.log(users); } 
+function onRejected(error) { console.log(error); }
+
+getUsers().then(onFulfilled, onRejected);
+
+//OR
+promise.then(
+    (users) => console.log, 
+    (error) => console.log 
+);
+//ALL TOGETHER
+getUsers()
+  .then((users) => {
+    console.log(users);
+  })
+  .catch((error) => {
+    console.log(error);
+  })
+  .finally(() => {
+    render();
+  });
+```
+- Use `then()` method to schedule a callback to be executed when the promise is fulfilled, and `catch()` method to schedule a callback to be invoked when the promise is rejected.
+- Place the code that you want to execute in the `finally()` method whether the promise is fulfilled or rejected.
+- `Promise.resolve('Success').finally(() => console.log('Done')); //Done`
+- `Promise.resolve('Success').then(console.log); //Success`
+- `Promise.reject('Error').catch(console.log);//Error`
+- ES2017 introduced the [`async`/`await`](https://www.javascripttutorial.net/es-next/javascript-async-await/) that helps you write code that is cleaner than using the promise chaining technique.
+- The `Promise.all()` method accepts a list of promises and returns a new promise that resolves to an array of results of the input promises if all the input promises are resolved, or rejected with an error of the first rejected promise.
+- `Promise.all([Promise.resolve(1), Promise.resolve(2), Promise.resolve(3)]).then(console.log); //[1, 2, 3]`
+- `Promise.all([Promise.resolve(1), Promise.reject('Error'), Promise.resolve(3)]).catch(console.log); //Error`
+- The `Promise.race(iterable)` method returns a new promise that fulfills or rejects as soon as one of the promises in an iterable fulfills or rejects, with the value or error from that promise.
+- `Promise.race([Promise.resolve(1), new Promise(resolve => setTimeout(() => resolve(2), 1000))]).then(console.log); //1`
+- If one of the promises in the iterable object is fulfilled, the `Promise.any()` returns a single promise that resolves to a value which is the result of the fulfilled
+- The `Promise.any()` returns a promise that is fulfilled with any first fulfilled promise even if some promises in the iterable object are rejected
+- `Promise.any([Promise.reject('Error1'), Promise.resolve('Success1'), Promise.resolve('Success2')]).then(console.log).catch(console.error); //Success1`
+- `Promise.any()` waits for the first promise to fulfill (resolve), whereas `Promise.race()` waits for the first promise to settle (resolve or reject).
+- `Promise.any([Promise.reject('Error1'), Promise.reject('Error2')]).then(console.log).catch(error => console.log(error.errors));`
+- Since all promises reject, `Promise.any()` rejects with an AggregateError. The `errors` property of this AggregateError contains an array of rejection reasons: ['Error1', 'Error2'].
+- The `Promise.allSettled()` method accepts an iterable of promises and returns a new promise that resolves when every input promise has settled with an array of objects that describes the result of each promise in the iterable object.
+- Before ES6, we had to use callbacks for handling asynchronous programming in JavaScript. However, this approach often led to `callback hell` when the number of nested functions grew.
+- ES6 introduced the Promise object, which made asynchronous programming more manageable by allowing chaining.
+- Then, in ES2017, the `async and await` keywords were introduced to further simplify asynchronous code, making it cleaner and easier to read.
+- async/await is essentially syntactic sugar built on top of Promises. When we use the await keyword, the function returns a Promise object, making it possible to work with asynchronous operations in a more readable, synchronous-like manner.
+- 
+```javascript
+async function showServiceCost() {
+    try {
+       let user = await getUser(100);
+       let services = await getServices(user);
+       let cost = await getServiceCost(services);
+       console.log(`The service cost is ${cost}`);
+    } catch(error) {
+       console.log(error);
+    }
+}
+```
+
+31/12/2024
+## Iterators
+- ES6 provides built-in iterators for the collection types  `Array`, `Set`, and `Map`, We can use a `for...of` loop to iterate over an iterable object.
+- If you have a custom type and want to make it iterable so that you can use the `for...of` loop construct, you need to implement the [iteration protocols](https://www.javascripttutorial.net/javascript-iterator/)
+- A generator can pause midway and then continues from where it paused
+```javascript
+function* generate() {
+    console.log('invoked 1st time');
+    yield 1; //the `yield` statement returns a value and pauses the execution of the function.
+    console.log('invoked 2nd time');
+    yield 2;
+}
+```
+-  A generator returns a `Generator` object without executing its body when it is invoked.
+-  A `Generator` object is [iterable](https://www.javascripttutorial.net/es6/javascript-iterator/). So you can use the `for...of` loop.
+- Use cases of `for...of` loop
+
+```javascript
+// Iterating over arrays
+
+let scores = [80, 90, 70];
+
+for (let score of scores) {
+    score = score + 5;
+    console.log(score);
+}
+
+let scores = [80, 90, 70];
+
+for (const score of scores) {
+    console.log(score);
+}
+
+let colors = ['Red', 'Green', 'Blue'];
+
+for (const [index, color] of colors.entries()) {
+    console.log(`${color} is at index ${index}`);
+}
+
+//In-place object destructuring with for…of
+
+const ratings = [
+    {user: 'John',score: 3},
+    {user: 'Jane',score: 4},
+    {user: 'David',score: 5},
+    {user: 'Peter',score: 2},
+];
+
+let sum = 0;
+for (const {score} of ratings) {
+    sum += score;
+}
+
+console.log(`Total scores: ${sum}`); // 14
+
+//Iterating over strings
+let str = 'abc';
+for (let c of str) {
+    console.log(c);
+}
+
+//Iterating over Map objects
+let colors = new Map();
+
+colors.set('red', '#ff0000');
+colors.set('green', '#00ff00');
+colors.set('blue', '#0000ff');
+
+for (let color of colors) {
+    console.log(color);
+}
+
+//Iterating over set objects
+let nums = new Set([1, 2, 3]);
+
+for (let num of nums) {
+    console.log(num);
+}
+```
+
+- The `for...in` iterates over all `enumerable properties of an object`. It doesn’t iterate over a collection such as `Array`, `Map` or `Set`.
+
+
+
+
+
+
+
+
+
+
+
 
 
 
