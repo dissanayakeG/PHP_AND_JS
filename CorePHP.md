@@ -1,4 +1,5 @@
-#### What is PHP
+# PHP in nutshell
+## What is PHP
 
 - php is a scripting language like js, not a programming language
 - programming language = compile
@@ -47,7 +48,7 @@ if (isset($_POST['name'], $_POST['email'])) {
 
 - Use `filter_input()` and `filter_var()` functions to validate and sanitize data.
 
-#### `filter_var()` for sanitize and validate data
+## `filter_var()` for sanitize and validate data
 
 //filter_var ( mixed $value , int $filter = FILTER_DEFAULT , array|int $options = 0 ) : mixed
 
@@ -72,7 +73,7 @@ if (filter_has_var(INPUT_GET, 'id')) {
 ?>
 ```
 
-#### filter_input() for sanitize and validate data
+## filter_input() for sanitize and validate data
 
 - `filter_input ( int $type , string $var_name , int $filter = FILTER_DEFAULT , array|int $options = 0 ) : mixed`
 
@@ -99,7 +100,7 @@ if (null !== $term_html) {
 }
 ```
 
-#### `filter_input` vs. `filter_var`
+## `filter_input` vs. `filter_var`
 
 - If a variable doesn’t exist, the `filter_input()` function returns `null` while the `filter_var()` function returns an `empty string` and issues a `notice of an undefined index`.
 

@@ -16,15 +16,15 @@
 - Declaring and initializing a const must be done in a single statement since const variables holds a value that doesn't change
 - Has 2 data types, Primitive, complex
 - Primitive - undefined --> console.log(typeof undeclaredVar); // undefined
-    null --> console.log(null == undefined); // true
-    NaN --> stands for Not a Number. It is a special numeric value that indicates an invalid number, console.log('a'/2); // NaN;
+    - null --> console.log(null == undefined); // true
+    - NaN --> stands for Not a Number. It is a special numeric value that indicates an invalid number, console.log('a'/2); // NaN;
     NaN does not equal any value, including itself, so NaN == NaN returns false.
-    string --> JavaScript strings are immutable, This means that modifying a string always results in a new string,
+    - string --> JavaScript strings are immutable, This means that modifying a string always results in a new string,
     leaving the original string unchanged.
-    boolean-->
-    symbol --> let s1 = Symbol(); //The Symbol function creates a new unique value every time you call it.
+    - boolean-->
+    - symbol --> let s1 = Symbol(); //The Symbol function creates a new unique value every time you call it.
     console.log(Symbol() == Symbol()); // false
-    bigint -->
+    - bigint -->
 
 - Complex - object --> collection of properties, where each property is defined as a key-value pair.
     //property can be accessed using both don and array notations (. || []), if a property name has whitespace (bad practice)
@@ -250,7 +250,7 @@ Person('Lily'); //Uncaught must use new operator with Person
 - Object.prototype.constructor property references the `Object` function
 `console.log(Object.prototype.constructor === Object); // true`
 
-```javascripts
+```javascript
 function Person(firstName, lastName) { //A Constructor function
     this.firstName = firstName;
 }
@@ -260,8 +260,8 @@ let p = Person('Alex'); //if we call without new keyword, the constructor functi
 - JavaScript links the `Person.prototype` object to the `Object.prototype` object via the `[[Prototype]]`, which is
   known as a `prototype linkage`.
 
-  ```javascripts
-  Person.prototype.greet = function() {
+```javascript
+Person.prototype.greet = function() {
       return "Hi, I'm " + this.name;
   }
   let p1 = new Person('John');
@@ -277,7 +277,7 @@ let p = Person('Alex'); //if we call without new keyword, the constructor functi
 
   console.log(Person.prototype === Object.getPrototypeOf(p1)); //true
   console.log(Person.prototype === p1.constructor.prototype); // true
-  ```
+```
 
 ![protoTypeLinkage.png](./protoTypeLinkage.png)
 
@@ -669,7 +669,7 @@ btn.addEventListener('click', () => {
 });
 ```
 
-#### A top-level await module
+### A top-level await module
 - A top-level await module acts like an `async` function.
 
 ```javascript
@@ -697,9 +697,167 @@ try {
 }
 ```
 
+31/12/2024
 
+## Symbol
 
+- ES6 added `Symbol` as a new primitive type
+- `let s = Symbol('foo');`
+- The `Symbol()` function creates a new `unique` value each time you call it
 
+```javascript
+let firstName = Symbol('first name');
+let firstName2 = Symbol('first name');
+console.log(firstName, firstName2, firstName === firstName2);
+//Symbol(first name) Symbol(first name) false
+
+console.log(typeof firstName); // symbol
+
+let s = new Symbol(); // error, Since a symbol is a primitive value
+```
+
+- ES6 provides you with a global symbol registry that allows you to share symbols globally
+```javascript
+let ssn = Symbol.for('ssn');
+let citizenID = Symbol.for('ssn');
+console.log(ssn === citizenID); // true
+console.log(Symbol.keyFor(citizenID)); // 'ssn'
+console.log(Symbol.keyFor(systemID)); // undefined
+```
+
+### Well-known symbols
+- Symbol.hasInstance
+- Symbol.iterator
+- Symbol.isConcatSpreadable
+- Symbol.toPrimitive
+
+## Map Object
+```javascript
+let john = {name: 'John Doe'},
+    lily = {name: 'Lily Bush'},
+    peter = {name: 'Peter Drucker'};
+    
+let userRoles = new Map();
+userRoles
+    .set(john, 'admin')
+    .set(lily, 'editor')
+    .set(peter, 'subscriber');
+//or
+let userRoles = new Map([
+    [john, 'admin'],
+    [lily, 'editor'],
+    [peter, 'subscriber']
+]);
+userRoles.get(john); // admin
+userRoles.get(foo); //undefined
+userRoles.has(foo); // false
+userRoles.has(lily); // true
+console.log(userRoles.size); // 3
+for (const user of userRoles.keys()) {}
+for (let role of userRoles.values()) {}
+
+//returns an iterator object that contains an array of `[key,value]` of each element in the `Map` object
+for (const role of userRoles.entries()) {} 
+for (let [user, role] of userRoles.entries()) {}
+var keys = [...userRoles.keys()];
+userRoles.delete(john);
+userRoles.clear();
+userRoles.forEach((role, user) => console.log(`${user.name}: ${role}`));
+```
+- A WeakMap is similar to a Map except for the keys of a WeakMap must be objects
+- A WeakMap only has subset methods of a Map object, `get(key)`, `set(key, value)`, `has(key)`, `delete(key)`
+
+## Set
+- ES6 provides a new type `Set` that stores a collection of unique values of any type
+```javascript
+let chars = new Set(['a', 'a', 'b', 'c', 'c']);
+console.log(chars); //Set { 'a', 'b', 'c' }
+console.log(chars.size);//  3
+chars.add('d'); //Set { 'a', 'b', 'c', 'd' }
+chars.add('e').add('f'); ////Set { 'a', 'b', 'c', 'd','e','f' }
+chars.has('a'); //true
+chars.has('z'); //false
+chars.delete('f'); //Set { 'a', 'b', 'c', 'd', 'e' }
+chars.clear(); // Set{}
+
+let roles = new Set();
+roles.add('admin')
+    .add('editor')
+    .add('subscriber');
+
+for (let role of roles) {}
+
+//The Set also provides the keys(), values(), and entries() methods like the Map. However, keys and values in the Set are identical.
+
+for (let [key, value] of roles.entries()) {
+    console.log(key === value);
+}
+//true, true, true
+
+roles.forEach(role => console.log(role.toUpperCase()));
+```
+- A WeakSet is similar to a Set except that it contains only objects.
+- Since objects in a WeakSet may be automatically garbage-collected, a WeakSet does not have size property.
+- Like a WeakMap, you cannot iterate elements of a WeakSet, therefore, you will find that WeakSet is rarely used in practice.
+
+## LET, VAR, CONST
+### scop
+- var - belongs to global if defined outside a function
+- var - local when declare inside a function
+- let - block scoped {} (not essentialy function)
+- var - global vars added to the global object (window in browser, global in Node.js)
+- let - not added to the global object
+- var - allow to redeclare
+- let - not allow to redeclare
+- let - have temporal dead zones 
+- var - does not have temporal dead zones
+- In the creation phase, assigns storage spaces to var variables and immediately initializes them to undefined.
+- In the execution phase, assigns the var variables the values specified by the assignments if there are ones. Otherwise, the var variables remain undefined.
+- In the creation phase, assigns storage spaces to the let variables but does not initialize the variables. Referencing uninitialized variables will cause a ReferenceError.
+- The let variables have the same execution phase as the var variables.
+- const - blocked scoped
+- const - can’t be reassigned
+- The const keyword creates a read-only reference to a value. The readonly reference cannot be reassigned but the value can be changed.
+
+```javascript
+//Objects
+const person = { age: 20 };
+person.age = 30; // OK
+console.log(person.age); // 30
+person = { age: 40 }; // TypeError
+
+//If you want the value of the person object to be immutable
+const person = Object.freeze({age: 20});
+person.age = 30; // TypeError
+
+//Note that Object.freeze() is shallow, meaning that it can freeze the properties of the object, not the objects referenced by the properties.
+
+const company = Object.freeze({
+    name: 'ABC corp',
+    address: {
+        street: 'North 1st street',
+        city: 'San Jose',
+        state: 'CA',
+        zipcode: 95134
+    }
+});
+company.address.country = 'USA'; // OK
+
+//Arrays
+const colors = ['red'];
+colors.push('green');
+console.log(colors); // ["red", "green"]
+
+colors.pop();
+colors.pop();
+console.log(colors); // []
+
+colors = []; // TypeError
+
+//Loops
+for (const score of scores) {} //A new `score` constant is created in each iteration.
+for (const i = 0; i < scores.length; i++) {} // TypeError //Declaration is only evaluated once before the loop body starts.
+```
 
 
 
