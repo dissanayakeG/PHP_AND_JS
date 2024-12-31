@@ -1,4 +1,8 @@
 # PHP in nutshell
+
+## up and run local php server
+- php -S localhost:8000 in the directory path
+
 ## What is PHP
 
 - php is a scripting language like js, not a programming language
