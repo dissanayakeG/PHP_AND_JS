@@ -596,10 +596,10 @@ for (let num of nums) {
 - The **for...in** iterates over all **enumerable properties of an object**. It doesn't iterate over a collection such as **Array**, **Map** or **Set**.
 
 ## Modules
-- A module is a JavaScript file that executes in **strict mode**. It means that any **variables** or **functions** declared in the module won’t be added automatically to the **global scope**.
-- Use the **export** statement to export variables, functions, and classes.
-- Use the **import** statement to import variables, functions, and classes from other modules.
-- Use **type="module"** in the script tag to instruct the web browser to load a JavaScript file as a module.
+- A module is a JavaScript file that executes in **strict mode**. It means that any **variables** or **functions** declared in the module won't be added automatically to the **global scope**.
+- Use the **export** statement to export variables, functions, and classes.
+- Use the **import** statement to import variables, functions, and classes from other modules.
+- Use **type="module"** in the script tag to instruct the web browser to load a JavaScript file as a module.
 
 ```javascript
 //lib.js
@@ -619,10 +619,10 @@ import { display as Mydisplay } from './lib.js';
 //index.html
 <script src="js/index.js" type="module"></script>
 ```
-- A module can have **multiple named exports** but **only one default export**.
-- It’s possible to combine the variable/function/class declaration, and export in a single statement.
+- A module can have **multiple named exports** but **only one default export**.
+- It's possible to combine the variable/function/class declaration, and export in a single statement.
 - Exporting multiple variables **export { MIN, MAX, count };**.
-- When importing a default export, you don’t need to place the variable inside curly braces.
+- When importing a default export, you don't need to place the variable inside curly braces.
 - When importing a default export, you can assign it any names you want when you import it.
 
 ```javascript
@@ -696,9 +696,9 @@ try {
 ```
 ## Symbol
 
-- ES6 added **Symbol** as a new primitive type
+- ES6 added **Symbol** as a new primitive type
 - **let s = Symbol('foo');**
-- The **Symbol()** function creates a new **unique** value each time you call it
+- The **Symbol()** function creates a new **unique** value each time you call it
 
 ```javascript
 let firstName = Symbol('first name');
@@ -751,7 +751,7 @@ console.log(userRoles.size); // 3
 for (const user of userRoles.keys()) {}
 for (let role of userRoles.values()) {}
 
-//returns an iterator object that contains an array of **[key,value]** of each element in the **Map** object
+//returns an iterator object that contains an array of **[key,value]** of each element in the **Map** object
 for (const role of userRoles.entries()) {} 
 for (let [user, role] of userRoles.entries()) {}
 var keys = [...userRoles.keys()];
@@ -763,7 +763,7 @@ userRoles.forEach((role, user) => console.log(**${user.name}: ${role}**));
 - A WeakMap only has subset methods of a Map object, **get(key)**, **set(key, value)**, **has(key)**, **delete(key)**
 
 ## Set
-- ES6 provides a new type **Set** that stores a collection of unique values of any type
+- ES6 provides a new type **Set** that stores a collection of unique values of any type
 ```javascript
 let chars = new Set(['a', 'a', 'b', 'c', 'c']);
 console.log(chars); //Set { 'a', 'b', 'c' }
@@ -804,14 +804,14 @@ roles.forEach(role => console.log(role.toUpperCase()));
 - let - not added to the global object
 - var - allow to redeclare
 - let - not allow to redeclare
-- let - have temporal dead zones 
+- let - have temporal dead zones 
 - var - does not have temporal dead zones
 - In the creation phase, assigns storage spaces to var variables and immediately initializes them to undefined.
 - In the execution phase, assigns the var variables the values specified by the assignments if there are ones. Otherwise, the var variables remain undefined.
 - In the creation phase, assigns storage spaces to the let variables but does not initialize the variables. Referencing uninitialized variables will cause a ReferenceError.
 - The let variables have the same execution phase as the var variables.
 - const - blocked scoped
-- const - can’t be reassigned
+- const - can't be reassigned
 - The const keyword creates a read-only reference to a value. The readonly reference cannot be reassigned but the value can be changed.
 
 ```javascript
@@ -850,16 +850,41 @@ console.log(colors); // []
 colors = []; // TypeError
 
 //Loops
-for (const score of scores) {} //A new **score** constant is created in each iteration.
+for (const score of scores) {} //A new **score** constant is created in each iteration.
 for (const i = 0; i < scores.length; i++) {} // TypeError //Declaration is only evaluated once before the loop body starts.
 ```
 <div style="page-break-after: always;"></div>
 
+## Advanced Operators
+- short-circuited means the operator does not evaluate the second value if the first operand is neither undefined nor null
+- Below 4 are short-circuits
+- 
+### The Logical OR assignment operator (x ||= y) 
+- The logical OR assignment operator **only assigns** y to x if x is **falsy**
+- Is equivalent to **x || (x = y)**
 
+### The Logical AND assignment operator (x &&= y)
+- The logical AND assignment operator **only assigns** y to x if x is **truthy**
+- Is equivalent to **x && (x = y)**
 
+### The nullish coalescing assignment operator (x ??= y)
+- The nullish coalescing assignment operator **only assigns** y to x **if x is null or undefined**
+- Is equivalent to **x ?? (x = y)**
 
+### Nullish Coalescing Operator
+- A nullish value is a value that is either null or undefined.
+- value1 ?? value2
+- The nullish coalescing operator **returns the second value (value2)** if the **first value (value1) is null or undefined**
 
+```javascript
+let count = 0;
+let result = count || 1; //1
+let result2 = count ?? 1; //0
+```
 
+### Exponentiation Operator
+- x**n, The operator ** raises the x to the power of an exponent n
+- An alternative way for **Math.pow(base, exponent)**
 
 
 
