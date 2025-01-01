@@ -107,6 +107,10 @@ let newWeight = ++weight + 5;
 console.log(newWeight); // 96 console.log(weight); // 91
 //Adds one to the value before evaluating the statement
 ```
+
+## Control flow Statements
+- if, if...else, if...else...if, Ternary Operators, switch, while,do...while,for loop, break,continue,Comma operator
+
 ## Functions
 - Every function in JavaScript implicitly returns **undefined** unless you explicitly
 - Inside a function, you can access an object called **arguments** that represents the named arguments of the function.
