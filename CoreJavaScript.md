@@ -1,19 +1,18 @@
 # JS in nutshell
 ## Fundamentals
 
-- In 1995, JavaScript was developed by [Brendan Eich](https://en.wikipedia.org/wiki/Brendan_Eich), a Netscape developer. Initially named Mocha, it was later renamed to LiveScript.
+- In 1995, JavaScript was developed by Brendan Eich, a Netscape developer. Initially named Mocha, it was later renamed to LiveScript.
 - Three main parts in JS - **ECMAScript | DOM | BOM**
 
 ### Variables
-
 - Variables cannot start with digit,special characters
 - camelCase by convention
 - Dynamically typed (don't need to explicitly specify the variable's type)
-- _Ex_ for static-typed languages -- Java/ C#.
+- Examples for static-typed languages : Java/ C#.
 - Accessing undeclared variables gives a ReferenceError
 - Declaring and initializing a const must be done in a single statement since const variables holds a value that doesn't change
 - Has 2 data types, **Primitive, complex**
-- Primitive
+**Primitive**
     - undefined --> **console.log(typeof undeclaredVar); // undefined**
     - null --> **console.log(null == undefined); // true**
     - NaN --> stands for Not a Number. It is a special numeric value that indicates an invalid number, **console.log('a'/2); // NaN**;
@@ -25,28 +24,30 @@
                         **console.log(Symbol() == Symbol()); // false**
     - bigint -->
 
-- Complex
+**Complex**
     - Object --> collection of properties, where each property is defined as a key-value pair.
       - Property can be accessed using both don and array notations (. || []),
       - If a property name has whitespace (bad practice), you must access it with array notation
       - Deleting a property --> delete objectName.propertyName.
       - Checking if a property exists --> propertyName in objectName
 
+### Numeric Separator
 - Numeric separators ( \_ ) --> let amount = 120_201_123.05; // 120201123.05
-    can be used for any number type(integer,factional and exponent, floating, BigInt,binary,octal,hex)
+- Can be used for any number type(integer,factional and exponent, floating, BigInt,binary,octal,hex)
 - It's important to note that all numbers in JavaScript are floating-point numbers.
 
+### Boolean type
 - Boolean() function casts the values of other types to boolean values:
 - Boolean() return true for any of -> (Any non-empty string, Any Non-zero number,Any object)
 - Boolean() return false for any of ->(empty string,0, NaN,null,undefined)
+
+### String
 - Template literal and string interpolation --> **console.log(Hi, I'm ${name}.)**
 - To access the last character of the string --> **console.log(str[str.length -1]) // first --> str[0] OR str.charAt(0)**
 - Converting values to string --> String(n); | ” + n | n.toString() --> toString() method doesn't work for undefined and null
 
-### [Primitive vs. Reference Values](https://www.javascripttutorial.net/javascript-primitive-vs-reference-values/ "JavaScript Primitive vs. Reference Values")
-
-Static data is the data whose **size is fixed** at **compile time**
-
+### Primitive vs. Reference Values
+- Static data is the data whose **size is fixed** at **compile time**
 - Primitive values && Reference values that refer to objects (this is not object, but reference).
 - Since primitive data types has fixed size, JS store them in stack by allocating fixed amount of memory space
 - Objects (and functions) on the heap , doesn't allocate a fixed amount of memory
@@ -65,7 +66,7 @@ Static data is the data whose **size is fixed** at **compile time**
 - Finding an index of an element → array.indexOf(1);
 - Check if a value is an array → Array.isArray(seas)
 
-### Arithmetic Operators
+## Operators
 
 - In (- , \*, /) If either value is not a number, the JavaScript engine implicitly converts it into a number using the **Number()** function.
 - If the value is an object, Js use object”s **valueOf** function, if it is not exists Js use **toString** function of the object.
@@ -106,7 +107,7 @@ let newWeight = ++weight + 5;
 console.log(newWeight); // 96 console.log(weight); // 91
 //Adds one to the value before evaluating the statement
 ```
-
+## Functions
 - Every function in JavaScript implicitly returns **undefined** unless you explicitly
 - Inside a function, you can access an object called **arguments** that represents the named arguments of the function.
 - The **arguments** object behaves like an [array](https://www.javascripttutorial.net/javascript-array/) though it is not an instance of the [Array](https://www.javascripttutorial.net/javascript-array/) type.
