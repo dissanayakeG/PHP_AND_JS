@@ -215,3 +215,33 @@ FROM
     GROUP BY customerNumber) cg
 GROUP BY cg.customerGroup;    
 ```
+
+- For some scenarios, both the **IN** and **EXISTS** clauses can be used, but since the **EXISTS** operator works based on the
+  **at least found** principle, it is much faster.
+- However, the query that uses the IN operator will perform faster if the result set returned from the subquery is very small.
+
+```sql
+#1
+SELECT * FROM customers c1
+WHERE customerNumber IN 
+    (SELECT customerNumber FROM orders );
+#2    
+SELECT * FROM customers c1
+WHERE EXISTS 
+    (SELECT *  FROM orders o  WHERE c1.customerNumber = o.customerNumber );
+```
+
+## Set operators
+- To combine result set of two or more queries using the UNION operator.
+- First, the number and the orders of columns that appear in all SELECT statements must be the same.
+- Second, the data types of columns must be the same or compatible.
+- By default, the UNION operator removes duplicate rows even if you don’t specify the DISTINCT operator explicitly. **SELECT column_list UNION [DISTINCT | ALL]**
+- A JOIN combines result sets horizontally, a UNION appends result set vertically.
+- Use the MySQL **EXCEPT** operator to retrieve rows from one result set that do not appear in another result set. And it follows the same rules like in UNION operator.
+- Use the MySQL **INTERSECT** operator to find the rows that are common to multiple query results. And it follows the same rules like in UNION operator.
+
+## Managing databases
+- Directly login MYSQL with a database name **mysql -u root -D classicmodels -p**
+- Review the created database **SHOW CREATE DATABASE testdb;**
+- Unlike MySQL, where schema and database are interchangeable, in standard SQL (and many RDBMS like PostgreSQL, SQL Server, or Oracle), they are distinct concepts.
+- In standard SQL, CREATE DATABASE creates a new database, while CREATE SCHEMA organizes objects within an existing database.
