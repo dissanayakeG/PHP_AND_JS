@@ -287,4 +287,30 @@ app.use('/static', express.static('public')) //To create a virtual path prefix
 app.use('/static', express.static(path.join(__dirname, 'public')))
 ```
 
+## Middlewares
+- next('route') will work only in middleware functions that were loaded by using the app.METHOD() or router.METHOD() functions.
+
+```javascript
+app.get('/user/:id', (req, res, next) => {
+  // if the user ID is 0, skip to the next route
+  if (req.params.id === '0') next('route')
+  // otherwise pass the control to the next middleware function in this stack
+  else next()
+}, (req, res, next) => {
+  // send a regular response
+  res.send('regular')
+})
+
+// handler for the /user/:id path, which sends a special response
+app.get('/user/:id', (req, res, next) => {
+  res.send('special')
+})
+
+//Error-handling middleware
+app.use((err, req, res, next) => {
+  console.error(err.stack)
+  res.status(500).send('Something broke!')
+})
+```
+- **Error-handling middleware** always takes **four** arguments. You must provide four arguments to identify it as an error-handling middleware function. Even if you don’t need to use the next object, you must specify it to maintain the signature. Otherwise, the next object will be interpreted as regular middleware and will fail to handle errors.
 
