@@ -1,3 +1,4 @@
+Note: INTO, LIKE for copy table
 ## Querying data
 
 - MySQL **SELECT** statement doesn’t require the **FROM** clause.
@@ -8,7 +9,7 @@ SELECT CONCAT(“HI",”MySql")
 ```
 - Assign an alias to a column to make it more readable. (here, **as** is optional)
 
-## Evaluation Order
+### Evaluation Order
 - The evaluation order is so important because when we use aliases, sometimes it may not work if the relevant CLAUSE executes before the SELECT statement.
 
 ## Sorting data
@@ -245,3 +246,97 @@ WHERE EXISTS
 - Review the created database **SHOW CREATE DATABASE testdb;**
 - Unlike MySQL, where schema and database are interchangeable, in standard SQL (and many RDBMS like PostgreSQL, SQL Server, or Oracle), they are distinct concepts.
 - In standard SQL, CREATE DATABASE creates a new database, while CREATE SCHEMA organizes objects within an existing database.
+
+## Working with tables
+- **CREATE TABLE [IF NOT EXISTS] table_name(column1 datatype constraints,...) ENGINE=storage_engine;**
+- The **SELECT LAST_INSERT_ID();** query returns the last auto-increment value generated for the ID column.
+- MySQL does not have the built-in BOOLEAN or BOOL data type. To represent boolean values, MySQL uses the smallest integer type which is TINYINT(1).
+- CHAR and BINARY are fixed length while VARCHAR and VARBINARY are variable length string data types.
+
+```sql
+#Insert data into a tbale from other tables
+INSERT INTO credits(customerNumber, creditLimit)
+SELECT customerNumber, creditLimit FROM customers WHERE creditLimit > 0;
+```
+
+### ALTER Table/s
+
+```sql
+ALTER TABLE tbl ADD col1 column_definition  [FIRST | AFTER column_name], col2 column_definition  [FIRST | AFTER column_name]...
+#Adding a new NOT NULL columns to an existing table will populated with default values
+
+ALTER TABLE tbl MODIFY col1 column_definition [ FIRST | AFTER column_name], col1 column_definition [ FIRST | AFTER column_name]...;
+
+ALTER TABLE tbl CHANGE COLUMN original_name new_name column_definition [FIRST | AFTER column_name];
+
+ALTER TABLE table_name DROP COLUMN column_name;
+#The COLUMN keyword in the DROP COLUMN clause is optional
+#Before droping, need to check use cases of the column like FKs,SPs,Views,Triggers...
+
+ALTER TABLE table_name RENAME TO new_table_name;
+
+#Note:
+RENAME TABLE table_name TO new_table_name;
+
+DROP [TEMPORARY] TABLE [IF EXISTS] tbl1,tbl2...;
+```
+- Note that you cannot use the RENAME TABLE statement to rename a temporary table, but you can use the ALTER TABLE statement to rename a temporary table.
+
+- Use **DESCRIBE tabel_name; / DESC tabel_name;** to get the list of columns in a table with their definitions.
+- Use **CHECK TABLE tbl_name;** to check the status of the table/view.
+- Use **SHOW WARNINGS;** to show the warning
+
+- In terms of security, any existing privileges that you granted to the old table must be manually migrated to the new table when using RENAME TABLE.
+- And you’ll need to manually adjust other database objects, including views, stored procedures, triggers, and foreign key constraints that reference the table.
+- Check is a column exist in a table
+
+```sql
+SELECT IF(count(*) = 1, 'Exist','Not Exist') AS result
+FROM information_schema.columns
+WHERE table_schema = 'classicmodels' AND table_name = 'vendors' AND column_name = 'phone';
+```
+- MySQL allows a table to have up to one auto-increment column and that column must be defined as a key.
+- If we add new auto-increment id column to an existing table, it will add ids for existing rows as well.
+- Note that the DROP TABLE statement only drops tables. It doesn’t remove specific user privileges associated with the tables. Therefore, if you create a table with the same name as the dropped one, MySQL will apply the existing privileges to the new table, which may pose a security risk.
+- To execute the DROP TABLE statement, you must have DROP privileges for the table that you want to remove.
+- If you want to drop multiple tables that have a specific pattern in a database, you can't use the LIKE operator; instead, you have to write a separate mechanism or use SPs.
+
+### Temporary tables
+
+- MySQL removes the temporary table automatically when the session ends or the connection is terminated.
+- A temporary table is only available and accessible to the client that creates it.
+- In the same session, two temporary tables cannot share the same name.
+- If you create a temporary table named **employees** in the sample database, the existing **employees** table becomes **inaccessible**.
+- To create a temporary table whose structure is based on an existing table, you cannot use the CREATE TEMPORARY TABLE ... LIKE statement.
+
+```sql
+CREATE TEMPORARY TABLE temp_table_name
+SELECT * FROM original_table LIMIT 0;
+```
+
+### Truncateing a Table
+```sql
+TRUNCATE [TABLE] table_name; #The TABLE keyword is optional, but to distinguish TRUNCATE TABLE and TRUNCATE() use it.
+```
+- Truncating a table resets AUTO_INCREMENT values to zero.
+- If there is any FOREIGN KEY constraints from other tables that reference the table that you truncate, the TRUNCATE TABLE statement will fail.
+- It cannot be rolled back.
+- TRUNCATE TABLE statement is more efficient than the DELETE statement because it drops and recreates the table instead of deleting rows one by one.
+
+### Generated Column
+- Use a MySQL Generated column to store data computed from an expression or other columns.
+```sql
+CREATE TABLE contacts (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(50) NOT NULL,
+    last_name VARCHAR(50) NOT NULL,
+    fullname varchar(101) GENERATED ALWAYS AS (CONCAT(first_name,' ',last_name))
+);
+
+column_name data_type [GENERATED ALWAYS] AS (expression) [VIRTUAL | STORED] [UNIQUE [KEY]]
+```
+- MySQL provides two types of generated columns: stored and virtual. The virtual columns are calculated on the fly each time data is read whereas the stored columns are calculated and stored physically when the data is updated. default is VIRTUAL.
+- The **expression** can contain literals, and built-in functions with no parameters, operators, or references to any column within the same table. If you use a function, it must be scalar and deterministic.
+- If the generated column is **stored**, you can define a **unique constraint** for it.
+
+## MySQL constraints
