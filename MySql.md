@@ -1,3 +1,4 @@
+# MySql
 # Querying data
 
 - MySQL **SELECT** statement doesn’t require the **FROM** clause.

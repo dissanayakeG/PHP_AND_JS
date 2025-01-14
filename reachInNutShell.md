@@ -1,10 +1,12 @@
+# React
 # Describing the UI
 
 ## Props
+
 * When you place content within a JSX tag, the parent component automatically receives that content as a `children` prop. For instance, in the example below, the **Card** component receives the **children** prop containing ****<Avatar />**** and renders it inside a wrapper **div**.
 
     ```javascript
-    function Card({ children }) {
+    function Card({ myProp, children }) {
       return (
         <div className="card">
           {children}
@@ -13,17 +15,19 @@
     }
     
     export default function Profile() {
-      return ( <Card>  <Avatar/>  </Card> );
+      return ( <Card myProp={...}>  <Avatar/>  </Card> );
     }
     ```
 
 ## Rendering a List
+
 * When using JSX elements directly inside a `map()` call, you must always assign them unique **keys**. Keys help React identify and manage elements efficiently. Keep in mind: 
 - **Keys must be unique among siblings.**  
 - **Keys should remain stable and not change over time.**  
 - **Avoid generating keys dynamically during rendering.**
 
 ## Keeping Components Pure
+
 * In general, you should not rely on components being rendered in any specific order.  
 
 - **Avoid side effects caused by shared state:** If a component reads and writes to a shared variable (e.g., a `guest` variable declared outside the component), rendering it multiple times may lead to inconsistent JSX.  
