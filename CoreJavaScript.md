@@ -1,10 +1,9 @@
-# JS in nutshell
-## Fundamentals
+# Fundamentals
 
 - In 1995, JavaScript was developed by Brendan Eich, a Netscape developer. Initially named Mocha, it was later renamed to LiveScript.
 - Three main parts in JS - **ECMAScript | DOM | BOM**
 
-### Variables
+## Variables
 - Variables cannot start with digit,special characters
 - camelCase by convention
 - Dynamically typed (don't need to explicitly specify the variable's type)
@@ -31,22 +30,22 @@
       - Deleting a property --> delete objectName.propertyName.
       - Checking if a property exists --> propertyName in objectName
 
-### Numeric Separator
+## Numeric Separator
 - Numeric separators ( \_ ) --> let amount = 120_201_123.05; // 120201123.05
 - Can be used for any number type(integer,factional and exponent, floating, BigInt,binary,octal,hex)
 - It's important to note that all numbers in JavaScript are floating-point numbers.
 
-### Boolean type
+## Boolean type
 - Boolean() function casts the values of other types to boolean values:
 - Boolean() return true for any of -> (Any non-empty string, Any Non-zero number,Any object)
 - Boolean() return false for any of ->(empty string,0, NaN,null,undefined)
 
-### String
+## String
 - Template literal and string interpolation --> **console.log(Hi, I'm ${name}.)**
 - To access the last character of the string --> **console.log(str[str.length -1]) // first --> str[0] OR str.charAt(0)**
 - Converting values to string --> String(n); | ” + n | n.toString() --> toString() method doesn't work for undefined and null
 
-### Primitive vs. Reference Values
+## Primitive vs. Reference Values
 - Static data is the data whose **size is fixed** at **compile time**
 - Primitive values && Reference values that refer to objects (this is not object, but reference).
 - Since primitive data types has fixed size, JS store them in stack by allocating fixed amount of memory space
@@ -57,7 +56,7 @@
 
 ![stackAndHeapInJs.png](./stackAndHeapInJs.png)
 
-### Arrays
+## Arrays
 
 - Note that if you use the **Array()** constructor to create an array and pass a **single number** into it, you are creating an array with an initial size.
 - Appending an element --> array.push
@@ -66,7 +65,7 @@
 - Finding an index of an element → array.indexOf(1);
 - Check if a value is an array → Array.isArray(seas)
 
-## Operators
+# Operators
 
 - In (- , \*, /) If either value is not a number, the JavaScript engine implicitly converts it into a number using the **Number()** function.
 - If the value is an object, Js use object”s **valueOf** function, if it is not exists Js use **toString** function of the object.
@@ -108,10 +107,10 @@ console.log(newWeight); // 96 console.log(weight); // 91
 //Adds one to the value before evaluating the statement
 ```
 
-## Control flow Statements
+# Control flow Statements
 - if, if...else, if...else...if, Ternary Operators, switch, while,do...while,for loop, break,continue,Comma operator
 
-## Functions
+# Functions
 - Every function in JavaScript implicitly returns **undefined** unless you explicitly
 - Inside a function, you can access an object called **arguments** that represents the named arguments of the function.
 - The **arguments** object behaves like an [array](https://www.javascripttutorial.net/javascript-array/) though it is not an instance of the [Array](https://www.javascripttutorial.net/javascript-array/) type.
@@ -184,8 +183,8 @@ console.log(styles); //{ color: 'red', }
 - The most effective way to handle this type of situation is by passing or accepting the parameters as an object.
 **createDiv({ border: 'solid 5px blue' });**
 
-## Objects & Prototypes
-### Constructor functions
+# Objects & Prototypes
+## Constructor functions
 
 ```javascript
 function Person(firstName, lastName) { //Note Uppercase P
@@ -244,7 +243,7 @@ console.log(john.name); // john
 Person('Lily'); //Uncaught must use new operator with Person
 ```
 
-### Object prototype
+## Object prototype
 
 - Every object has its own property called a **prototype**, objects can inherit features from one another via **prototypes**
 - Because the **prototype** itself is also another object, the **prototype** has its own **prototype**.
@@ -294,7 +293,7 @@ Person.prototype.greet = function() {
 - Since JavaScript engine cannot find it on the **person** object. Therefore, it follows the prototype chain and searches for the method in the **Object.prototype** object
 - **console.log(person.__proto__ === Object.prototype); // true**
 
-### prototypal inheritance
+## prototypal inheritance
 
 ```javascript
 let person = { name: "John Doe", greet: function () { return "Hi, I'm " + this.name; } };
@@ -362,8 +361,8 @@ const person = createObject('name', 'John');
 console.log(person); //{ name: 'John' }
 ```
 
-## Classes (ES6 - 2015)
-### private properties/methods static properties/methods
+# Classes (ES6 - 2015)
+## private properties/methods static properties/methods
 
 ```javascript
 class Person {
@@ -400,7 +399,7 @@ let person = new Person('John', 'Doe');
 console.log(person.getFullName());
 ```
 
-## Advanced Functions
+# Advanced Functions
 - In JavaScript, all functions are objects and  they are instances of the **Function** type
 - Typically, a local variable only exists during the function's execution.
 - A closure is a function that preserves the outer scope in its inner scope.
@@ -453,7 +452,7 @@ console.log(result); // 15, this **arguments** object belongs to the **show()** 
 - A callback is a function passed into another function as an argument to be executed later.
 - A high-order function is a function that accepts another function as an argument.
 
-## Promises & Async/Await
+# Promises & Async/Await
 ```javascript
 function getUsers() { 
     return new Promise((resolve, reject) => {
@@ -519,7 +518,7 @@ async function showServiceCost() {
 }
 ```
 
-## Iterators
+# Iterators
 - ES6 provides built-in iterators for the collection types **Array**, **Set**, and **Map**, We can use a **for...of** loop to iterate over an iterable object.
 - If you have a custom type and want to make it iterable so that you can use the **for...of** loop construct, you need to implement the [iteration protocols](https://www.javascripttutorial.net/javascript-iterator/)
 - A generator can pause midway and then continues from where it paused
@@ -600,7 +599,7 @@ for (let num of nums) {
 
 - The **for...in** iterates over all **enumerable properties of an object**. It doesn't iterate over a collection such as **Array**, **Map** or **Set**.
 
-## Modules
+# Modules
 - A module is a JavaScript file that executes in **strict mode**. It means that any **variables** or **functions** declared in the module won't be added automatically to the **global scope**.
 - Use the **export** statement to export variables, functions, and classes.
 - Use the **import** statement to import variables, functions, and classes from other modules.
@@ -672,7 +671,7 @@ btn.addEventListener('click', () => {
 });
 ```
 
-### A top-level await module
+## A top-level await module
 - A top-level await module acts like an **async** function.
 
 ```javascript
@@ -699,7 +698,7 @@ try {
   container.innerHTML = error;
 }
 ```
-## Symbol
+# Symbol
 
 - ES6 added **Symbol** as a new primitive type
 - **let s = Symbol('foo');**
@@ -725,13 +724,13 @@ console.log(Symbol.keyFor(citizenID)); // 'ssn'
 console.log(Symbol.keyFor(systemID)); // undefined
 ```
 
-### Well-known symbols
+## Well-known symbols
 - Symbol.hasInstance
 - Symbol.iterator
 - Symbol.isConcatSpreadable
 - Symbol.toPrimitive
 
-## Map Object
+# Map Object
 ```javascript
 let john = {name: 'John Doe'},
     lily = {name: 'Lily Bush'},
@@ -767,7 +766,7 @@ userRoles.forEach((role, user) => console.log(**${user.name}: ${role}**));
 - A WeakMap is similar to a Map except for the keys of a WeakMap must be objects
 - A WeakMap only has subset methods of a Map object, **get(key)**, **set(key, value)**, **has(key)**, **delete(key)**
 
-## Set
+# Set
 - ES6 provides a new type **Set** that stores a collection of unique values of any type
 ```javascript
 let chars = new Set(['a', 'a', 'b', 'c', 'c']);
@@ -800,8 +799,8 @@ roles.forEach(role => console.log(role.toUpperCase()));
 - Since objects in a WeakSet may be automatically garbage-collected, a WeakSet does not have size property.
 - Like a WeakMap, you cannot iterate elements of a WeakSet, therefore, you will find that WeakSet is rarely used in practice.
 
-## LET, VAR, CONST
-### scop
+# LET, VAR, CONST
+## scop
 - var - belongs to global if defined outside a function
 - var - local when declare inside a function
 - let - block scoped {} (not essentialy function)
@@ -860,23 +859,23 @@ for (const i = 0; i < scores.length; i++) {} // TypeError //Declaration is only 
 ```
 <div style="page-break-after: always;"></div>
 
-## Advanced Operators
+# Advanced Operators
 - short-circuited means the operator does not evaluate the second value if the first operand is neither undefined nor null
 - Below 4 are short-circuits
 - 
-### The Logical OR assignment operator (x ||= y) 
+## The Logical OR assignment operator (x ||= y) 
 - The logical OR assignment operator **only assigns** y to x if x is **falsy**
 - Is equivalent to **x || (x = y)**
 
-### The Logical AND assignment operator (x &&= y)
+## The Logical AND assignment operator (x &&= y)
 - The logical AND assignment operator **only assigns** y to x if x is **truthy**
 - Is equivalent to **x && (x = y)**
 
-### The nullish coalescing assignment operator (x ??= y)
+## The nullish coalescing assignment operator (x ??= y)
 - The nullish coalescing assignment operator **only assigns** y to x **if x is null or undefined**
 - Is equivalent to **x ?? (x = y)**
 
-### Nullish Coalescing Operator
+## Nullish Coalescing Operator
 - A nullish value is a value that is either null or undefined.
 - value1 ?? value2
 - The nullish coalescing operator **returns the second value (value2)** if the **first value (value1) is null or undefined**
@@ -887,7 +886,7 @@ let result = count || 1; //1
 let result2 = count ?? 1; //0
 ```
 
-### Exponentiation Operator
+## Exponentiation Operator
 - x**n, The operator ** raises the x to the power of an exponent n
 - An alternative way for **Math.pow(base, exponent)**
 

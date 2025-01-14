@@ -1,5 +1,4 @@
-Note: INTO, LIKE for copy table
-## Querying data
+# Querying data
 
 - MySQL **SELECT** statement doesn’t require the **FROM** clause.
 - When executing the SELECT statement, MySQL evaluates the FROM clause before the SELECT clause (if has)
@@ -9,10 +8,10 @@ SELECT CONCAT(“HI",”MySql")
 ```
 - Assign an alias to a column to make it more readable. (here, **as** is optional)
 
-### Evaluation Order
+## Evaluation Order
 - The evaluation order is so important because when we use aliases, sometimes it may not work if the relevant CLAUSE executes before the SELECT statement.
 
-## Sorting data
+# Sorting data
 
 - By default, the ORDER BY clause uses ASC if you don’t explicitly specify any option
 - The evaluation order **FROM->SELECT->ORDER BY**
@@ -35,7 +34,7 @@ SELECT orderNumber,status FROM orders
 ORDER BY  FIELD(status, 'In Process', 'On Hold', 'Cancelled', 'Resolved', 'Disputed', 'Shipped');
 ```
 
-## Filtering data
+# Filtering data
 - Note that MySQL treats 1 as true and 0 as false.
 - MySQL evaluates the WHERE clause after the FROM clause and before the SELECT and ORDER BY clauses.
     **FROM->WHERE->SELECT->ORDER_BY**
@@ -64,7 +63,7 @@ SELECT 1 IN (1,2,3); #returns 1 because 1 is in the list
 ```
 - Use the MySQL NOT IN to check if a value doesn’t match any value in a list.
 
-### wildcard characters (%, _)
+## wildcard characters (%, _)
 
 - The percentage ( % ) wildcard matches any string of zero or more characters
     **s% => sun, six | %on => Patterson,Thompson | %on% => Bondur,Bondur**
@@ -91,7 +90,7 @@ ORDER BY  sort_expression LIMIT offset, row_count;
 SELECT customerName, creditLimit FROM customers ORDER BY creditLimit DESC LIMIT 1,1;
 ```
 
-## Joining tables
+# Joining tables
 
 - You cannot use a column alias in the WHERE clause. The reason is that when MySQL evaluates the WHERE clause, the values of columns specified in the SELECT clause have not been evaluated yet
 - MySQL hasn’t supported the FULL OUTER JOIN yet.
@@ -115,9 +114,9 @@ SELECT o.orderNumber, customerNumber, productCode FROM orders o LEFT JOIN orderD
 - The RIGHT OUTER JOIN is the synonym of the RIGHT JOIN
 - Use table aliases and inner join or left join to perform a self join in MySQL. //REFER MORE
 
-## Grouping data
+# Grouping data
 
-### Group By
+## Group By
 
 - The GROUP BY clause groups rows into summary rows based on column values or expressions. It returns one row for each group and reduces the number of rows in the result set.
 - Place the GROUP BY clause after the FROM and WHERE clauses
@@ -129,7 +128,7 @@ SELECT status, COUNT(*) FROM orders GROUP BY status;
 ```
 - If you use the GROUP BY clause in the SELECT statement without using aggregate functions, the GROUP BY clause behaves like the DISTINCT clause.
 
-### Having
+## Having
 
 - The HAVING clause applies the condition to groups of rows, while the WHERE clause applies the condition to individual rows.
 - If you omit the GROUP BY clause, the HAVING clause behaves like the WHERE clause
@@ -144,7 +143,7 @@ GROUP BY ordernumber HAVING total > 1000;
 ```
 - Use the HAVING COUNT clause to filter groups by the number of items in each group.
 
-## Subqueries
+# Subqueries
 - A query contain within another query like SELECT, INSERT, UPDATE, DELETE
 - SubQuery evaluates first
 
@@ -164,7 +163,7 @@ WHERE officeCode IN
 - When a subquery is used with the EXISTS or NOT EXISTS operator, a subquery returns a Boolean value of TRUE or FALSE.
 - When you use a subquery in the FROM clause, the result set returned from a subquery is used as a temporary table. This table is referred to as a derived table or materialized subquery.
 
-### correlated subquery
+## correlated subquery
 - Subqueries are  independent as they are standalone.
 - A correlated subquery is a subquery that uses the data from the outer query. In other words, a correlated subquery depends on the outer query. A correlated subquery is evaluated once for each row in the outer query.
 
@@ -191,7 +190,7 @@ WHERE EXISTS
     GROUP BY  orderNumber
     HAVING SUM(priceEach * quantityOrdered) > 60000);
 ```
-### derived tables
+## derived tables
 
 ![DerivedTables.png](./DerivedTables.png)
 
@@ -232,7 +231,7 @@ WHERE EXISTS
     (SELECT *  FROM orders o  WHERE c1.customerNumber = o.customerNumber );
 ```
 
-## Set operators
+# Set operators
 
 - To combine result set of two or more queries using the UNION operator.
 - First, the number and the orders of columns that appear in all SELECT statements must be the same.
@@ -242,14 +241,14 @@ WHERE EXISTS
 - Use the MySQL **EXCEPT** operator to retrieve rows from one result set that do not appear in another result set. And it follows the same rules like in UNION operator.
 - Use the MySQL **INTERSECT** operator to find the rows that are common to multiple query results. And it follows the same rules like in UNION operator.
 
-## Managing databases
+# Managing databases
 
 - Directly login MYSQL with a database name **mysql -u root -D classicmodels -p**
 - Review the created database **SHOW CREATE DATABASE testdb;**
 - Unlike MySQL, where schema and database are interchangeable, in standard SQL (and many RDBMS like PostgreSQL, SQL Server, or Oracle), they are distinct concepts.
 - In standard SQL, CREATE DATABASE creates a new database, while CREATE SCHEMA organizes objects within an existing database.
 
-## Working with tables
+# Working with tables
 
 - **CREATE TABLE [IF NOT EXISTS] table_name(column1 datatype constraints,...) ENGINE=storage_engine;**
 - The **SELECT LAST_INSERT_ID();** query returns the last auto-increment value generated for the ID column.
@@ -262,7 +261,7 @@ INSERT INTO credits(customerNumber, creditLimit)
 SELECT customerNumber, creditLimit FROM customers WHERE creditLimit > 0;
 ```
 
-### ALTER Table/s
+## ALTER Table/s
 
 ```sql
 ALTER TABLE tbl ADD col1 column_definition  [FIRST | AFTER column_name], col2 column_definition  [FIRST | AFTER column_name]...
@@ -306,7 +305,7 @@ WHERE table_schema = 'classicmodels' AND table_name = 'vendors' AND column_name 
 - To execute the DROP TABLE statement, you must have DROP privileges for the table that you want to remove.
 - If you want to drop multiple tables that have a specific pattern in a database, you can't use the LIKE operator; instead, you have to write a separate mechanism or use SPs.
 
-### Temporary tables
+## Temporary tables
 
 - MySQL removes the temporary table automatically when the session ends or the connection is terminated.
 - A temporary table is only available and accessible to the client that creates it.
@@ -319,7 +318,7 @@ CREATE TEMPORARY TABLE temp_table_name
 SELECT * FROM original_table LIMIT 0;
 ```
 
-### Truncateing a Table
+## Truncateing a Table
 
 ```sql
 TRUNCATE [TABLE] table_name; #The TABLE keyword is optional, but to distinguish TRUNCATE TABLE and TRUNCATE() use it.
@@ -329,7 +328,7 @@ TRUNCATE [TABLE] table_name; #The TABLE keyword is optional, but to distinguish 
 - It cannot be rolled back.
 - TRUNCATE TABLE statement is more efficient than the DELETE statement because it drops and recreates the table instead of deleting rows one by one.
 
-### Generated Column
+## Generated Column
 
 - Use a MySQL Generated column to store data computed from an expression or other columns.
 ```sql
@@ -346,13 +345,13 @@ column_name data_type [GENERATED ALWAYS] AS (expression) [VIRTUAL | STORED] [UNI
 - The **expression** can contain literals, and built-in functions with no parameters, operators, or references to any column within the same table. If you use a function, it must be scalar and deterministic.
 - If the generated column is **stored**, you can define a **unique constraint** for it.
 
-## MySQL constraints
-### Primary Key
+# MySQL constraints
+## Primary Key
 
 - Primary Key can be defined as a column constraint or a table constraint. If the PK consist with multiple column it should be defined as a table constraint
 - **column1 datatype PRIMARY KEY, | column1 datatype,column2 datatype   ...,   PRIMARY KEY(column1, column2)**
 
-### Foreign Key
+## Foreign Key
 ```sql
 [CONSTRAINT constraint_name] #constraint_name is optional
 FOREIGN KEY [foreign_key_name] (column_name, ...) # foreign_key_name is optional
@@ -380,7 +379,7 @@ SET foreign_key_checks = 0;
 SET foreign_key_checks = 1;
 ```
 
-### UNIQUE Key
+## UNIQUE Key
 
 - In MySQL, NULL values are treated as distinct when it comes to unique constraints.
 - When you define a unique constraint for a column or a group of columns, MySQL creates a corresponding UNIQUE index and uses this index to enforce the rule.
@@ -402,7 +401,7 @@ ALTER TABLE table_name DROP INDEX index_name;
 ALTER TABLE table_name ADD CONSTRAINT constraint_name UNIQUE (column_list);
 ```
 
-### NOT NULL 
+## NOT NULL 
 
 ```sql
 #Add not null
@@ -413,7 +412,7 @@ CHANGE end_date end_date DATE NOT NULL;
 ALTER TABLE tasks 
 MODIFY end_date DATE;
 ```
-### DEFAULT 
+## DEFAULT 
 
 ```sql
 #Adddefault
@@ -429,7 +428,7 @@ ALTER TABLE table_name
 ALTER column_name DROP DEFAULT;
 ```
 
-### CHECK
+## CHECK
 
 - Use CHECK constraints to ensure values stored in a column satisfy a Boolean condition.
 ```sql
@@ -455,11 +454,11 @@ ALTER TABLE table_name ADD CONSTRAINT contraint_name CHECK (expression);
 ALTER TABLE table_name DROP CHECK constraint_name;
 ```
 
-## MySQL data types
+# MySQL data types
 
 - BIT, INT, BOOLEAN, DECIMAL, CHAR, VARCHAR, TEXT, DATETIME, TIMESTAMP, DATE, TIME, BINARY, VARBINARY, BLOB, ENUM, JSON, UUID?
 
-## Modifying data in MySQL
+# Modifying data in MySQL
 
 - When you insert multiple rows by a single statement and use the **LAST_INSERT_ID()** function to get the last inserted id of an **AUTO_INCREMENT** column, you will get the id of the first inserted row, not the id of the last inserted row.  **SELECT LAST_INSERT_ID();**
 
@@ -559,7 +558,7 @@ DELETE T1 FROM T1
 LEFT JOIN T2 ON T1.key = T2.key 
 WHERE T2.key IS NULL;
 ```
-### Replace
+## Replace
 
 - The MySQL REPLACE statement is an extension to the SQL Standard. The MySQL REPLACE statement works as follows:
 **Step 1**. Insert a new row into the table, if a duplicate key error occurs.
