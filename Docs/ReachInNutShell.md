@@ -168,4 +168,6 @@
    * Use updater functions for sequential updates in event handlers.
    * Avoid defining hooks inside conditional blocks or nested functions.
 
+# Managing State
+
 

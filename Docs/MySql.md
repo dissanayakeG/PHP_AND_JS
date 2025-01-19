@@ -1,4 +1,3 @@
-# MySql
 # Querying data
 
 - MySQL **SELECT** statement doesn’t require the **FROM** clause.
@@ -121,10 +120,11 @@ SELECT o.orderNumber, customerNumber, productCode FROM orders o LEFT JOIN orderD
 
 - The GROUP BY clause groups rows into summary rows based on column values or expressions. It returns one row for each group and reduces the number of rows in the result set.
 - Place the GROUP BY clause after the FROM and WHERE clauses
-- MySQL evaluates the GROUP BY clause after the FROM and WHERE clauses but before the HAVING, SELECT, DISTINCT, ORDER BY and LIMIT clauses
-- To obtain the number of orders in each status
+
+**FROM->WHERE->GROUP_BY->HAVING->SELECT->DISTINCT->ORDER_BY->LIMIT**
 
 ```sql
+#To obtain the number of orders in each status
 SELECT status, COUNT(*) FROM orders GROUP BY status;
 ```
 - If you use the GROUP BY clause in the SELECT statement without using aggregate functions, the GROUP BY clause behaves like the DISTINCT clause.
@@ -581,3 +581,224 @@ SELECT name,population FROM cities WHERE id = 1;
 ```
 - In INSERT, if no value spefified, it sets to NULL.
 - Unlike the UPDATE statement, if column value not specified in the SET clause, the REPLACE statement will use the default value of that column.
+
+# Common Table Expressions
+
+- Use MySQL CTEs to break down complex queries into simpler, more manageable queries. Each CTE represents a temporary result set that can be referenced within the main query.
+
+```sql
+#syntax
+WITH cte_name (column_list) AS ( query ) 
+SELECT * FROM cte_name;
+
+#1
+WITH customers_in_usa AS (
+    SELECT customerName, state FROM customers WHERE  country = 'USA'
+) 
+SELECT 
+	customerName
+FROM customers_in_usa WHERE  state = 'CA' ORDER BY customerName;
+
+#2
+WITH topsales2003 AS (...query with complex joins)
+SELECT column_list
+FROM another_table JOIN topsales2003
+
+#3 Using multiple CTEs
+WITH salesrep AS (...query),
+customer_salesrep AS (...query)
+SELECT * FROM customer_salesrep ORDER BY customerName;
+
+#4 Joining two CTEs example
+WITH e AS (...query),
+o AS (...query)
+SELECT * FROM e INNER JOIN o USING (colum)
+```
+- Use MySQL recursive CTE to traverse hierarchical data.
+
+# Table Locking
+
+```sql
+LOCK TABLES table_name1 [READ | WRITE], 
+            table_name2 [READ | WRITE],
+             ... ;
+#Unlock
+UNLOCK TABLES;
+#If the session is terminated, MySQL will release all the locks implicitly.
+
+#Get connection ID of the current session
+SELECT CONNECTION_ID();
+
+#Show the processlist that are waiting for execute once a particular lock is released
+SHOW PROCESSLIST;
+```
+- If a session locks a table as READ, the table can be read or data stored within that session. Other sessions can only read the table but will be in a waiting state for insert operations until the table is unlocked.
+- If a session locks a table as WRITE, the table can be read or data stored within that session. Other sessions cannot read or write to the table and are placed in a waiting state until the table is unlocked.
+
+# MySQL globalization
+
+- A character set is a collection of characters with a unique encoding. It defines the set of characters that can be used in a text column, such as letters, numbers, symbols, and special characters.
+- Use the CONVERT() or CAST() function to convert between character sets.
+
+```sql
+SHOW CHARACTER SET; #To list all character sets in the current MySQL server
+#Ex: utf8, utf8mb4, latin1, utf16
+
+#Setting character sets for client connections
+#1
+SET NAMES 'utf8mb4';
+
+#2 in configuration file (If the application supports the --default-character-set  option)
+[mysql]
+default-character-set=utf8mb4
+
+#3 Using the charset in connection strings ( connectors allow you to specify )
+$dsn ="mysql:host=$host;dbname=$db;charset=utf8mb4";
+```
+- A MySQL collation is a set of rules used to compare characters in a particular character set.
+- Each character set has a default collation. It can have more than one collation. However, two character sets cannot have the same collation.
+- MySQL allows you to specify character sets and collations at four levels:
+
+> Server | Database | Table | Column
+
+# User-defined variables
+
+- Use the MySQL user-defined variables in the SQL statements to pass data between statements within a session.
+- @variable_name, case-insensitive and MySQL-specific extension to SQL standard
+
+```sql
+#variable assignment
+SET @variable_name = value; OR
+SET @variable_name := value; OR
+SELECT value INTO @variable_name;
+
+SELECT c1, c2, c3, ...
+INTO @v1, @v2, @v3,...
+FROM table_name WHERE condition;
+```
+
+- A user-defined variable can hold a single value. If the SELECT statement returns multiple values, MySQL will issue an error and the variable will take the value of the first row in the result set: (LIMIT 1; -- ensure maximum one row returned)
+
+# MySQL import & export CSV
+
+- Use the LOAD DATA INFILE statement to import a CSV file into a table.
+- Use the SELECT ... INTO OUTFILE statement to export a table to a CSV file on the MySQL Server.
+
+# Advanced techniques
+
+## Natural Sorting
+
+- MySQL does not provide any built-in natural sorting syntax or function.
+- So,  1,10Z,1C,2,20D,2A,3C like results will be returned from the MySQL order by statement even if we expect a result like 1,1C,2,2A,3C,10Z,20D
+- natural sorting follows these principles:
+    1. Sort Numerical Values First.
+    2. Then sort Text Values Second.
+    3. Ignore letter cases and leading zeros.
+    4. Finally, sort symbols and special Characters using their ASCII or Unicode values.
+- Split data into parts and sort the parts to achieve natural sorting in MySQL. //**REGEXP_SUBSTR(name, '^\\d+') AS SIGNED**
+
+## Comparing two tables
+
+- Thus query returns no row if there are no unmatched records.
+```sql
+SELECT pk, c1
+FROM
+ (
+   SELECT t1.pk, t1.c1
+   FROM t1
+   UNION ALL
+   SELECT t2.pk, t2.c1
+   FROM t2
+)  t
+GROUP BY pk, c1
+HAVING COUNT(*) = 1
+ORDER BY pk
+```
+
+## Find Duplicate Rows/Values
+
+```sql
+SELECT 
+    first_name, COUNT(first_name),last_name,  COUNT(last_name),email,COUNT(email)
+FROM contacts
+GROUP BY first_name , last_name , email
+HAVING  COUNT(first_name) > 1 AND COUNT(last_name) > 1 AND COUNT(email) > 1;
+```
+
+## Delete Duplicate Rows
+1. using the DELETE JOIN statement - refer above
+2. using an intermediate table (create an intermediate table with same structure->insert distinct records->delete original table->rename intermediate table to the origianl tabel )
+3. using the ROW_NUMBER() function (from version 8.02)
+
+## Copy Table
+
+```sql
+#Copy only data
+CREATE TABLE IF NOT EXISTS offices_bk 
+SELECT * FROM offices;
+
+SELECT * FROM offices_bk;
+
+#copy data and all database objects associated with the offices table
+# indexes, primary key constraints, foreign key constraints, triggers, and so on
+CREATE TABLE offices2 LIKE offices;
+
+INSERT offices2
+SELECT * FROM offices;
+
+#Copying tables across databases
+CREATE TABLE destination_db.new_table 
+LIKE source_db.existing_table;
+
+INSERT destination_db.new_table 
+SELECT * FROM source_db.existing_table;
+```
+
+## Interval
+- **INTERVAL expr unit**
+
+```sql
+SELECT '2020-01-01' + INTERVAL -1 DAY; # 2019-12-31
+
+SELECT DATE_ADD('2020-01-01', INTERVAL 1 MONTH) 1_MONTH_LATER, 
+       DATE_SUB('2020-01-01',INTERVAL 1 MONTH) 1_MONTH_BEFORE; # 2020-02-01 | 2019-12-01
+
+SELECT TIMESTAMPADD(MINUTE,30,'2020-01-01') 30_MINUTES_LATER; # | 2020-01-01 00:30:00
+```
+
+## Commands
+
+```sql
+#Connect
+mysql -u username -p # Connect to a Local MySQL server
+mysql -u username -p db_name # Connect to Local MySQL server with database
+mysql -h remote_host -u username -p # Connect to Remote MySQL Server
+mysql -h remote_host -u username -p db_name # Connect to Remote MySQL Server with Database
+mysql -h remote_host -P port -u username -p # Specify MySQL server port
+mysql --login-path=mypath # Connect to a MySQL server using a login path
+mysql -h remote_host -u username -p --ssl-ca=ca.pem --ssl-cert=client-cert.pem --ssl-key=client-key.pem # Connect to MySQL Server with SSL
+
+#Exit
+\q OR quit OR exit Alternatively Ctrl+D in Unix and Ctrl+Z in windows  #Exit MySQL client
+
+#Read
+#If the number of columns is high, the output will not be readable. To fix it, you can 
+#display the query results in a vertical format using the \G instead of the semicolon (;):
+SELECT firstName, lastName FROM employees ORDER BY firstName LIMIT 2\G
+
+#Execute
+mysql -u username -p -e "SELECT * FROM table_name;" db_name # Execute a command and exit
+
+mysql -u username -p db_name < script.sql # Execute queries from a file, This can be used to import a dump db as well
+
+#use the result of another command as an input for mysql using the | operator:
+#works on Unix-like systems such as macOS and Ubuntu
+cat query.sql | mysql -u root -p classicmodels
+
+mysql -u username -p db_name -e "select * from tblName" > path/to/file # Write a query result to a file,
+# This can be used for export a db as a dump file as well if the file is .sql
+
+Ex) writes the data to the employee.txt file
+mysql -u root -p classicmodels -e "select * from employees" > employees.txt
+```
+
