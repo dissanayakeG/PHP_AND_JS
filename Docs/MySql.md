@@ -801,4 +801,3 @@ mysql -u username -p db_name -e "select * from tblName" > path/to/file # Write a
 Ex) writes the data to the employee.txt file
 mysql -u root -p classicmodels -e "select * from employees" > employees.txt
 ```
-
