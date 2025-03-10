@@ -531,3 +531,86 @@ COMMIT;
 ```
 
 - transactions can be used in Stored Procedures for more advance transactions ([See](#https://www.mysqltutorial.org/mysql-stored-procedure/mysql-transactions/))
+
+# Triggers
+
+- A trigger is a stored program invoked automatically in response to an event such as insert, update, or delete that occurs in the associated table
+- The SQL standard defines two types of triggers: row-level triggers and statement-level triggers.
+- MySQL supports only row-level triggers.
+
+```sql
+DELIMITER //
+CREATE TRIGGER trigger_name
+{BEFORE | AFTER} {INSERT | UPDATE | DELETE}
+ON table_name
+FOR EACH ROW
+BEGIN
+    -- Trigger body (SQL statements)
+END;
+//
+
+DELIMITER ;
+```
+
+- If you have multiple statements in the trigger_body, you have to use the BEGIN END block and change the default delimiter.
+- The trigger body can access the values of the column being affected by the operation.
+- To distinguish between the value of the columns BEFORE and AFTER the event has fired, you use the NEW and OLD modifiers. Ex: OLD.description, NEW.description
+- No OLD BEFORE INSERT and no NEW value AFTER DELETE
+- In an AFTER INSERT trigger, you can access the NEW values but you cannot change them.
+- In a BEFORE UPDATE trigger, you can update the NEW values but cannot update the OLD values.
+- In a AFTER UPDATE trigger, you can access OLD and NEW rows but cannot update them.
+- In a BEFORE DELETE trigger, you can access the OLD row but cannot update it.
+- In an AFTER DELETE trigger, you can access the OLD row but cannot change it.
+- The DROP TRIGGER requires the TRIGGER privilege for the table associated with the trigger.
+- Note that if you drop a table, MySQL will automatically drop all triggers associated with the table.
+
+```sql
+# to drop a trigger
+DROP TRIGGER [IF EXISTS] [schema_name.]trigger_name;
+
+# to show
+SHOW TRIGGERS
+[{FROM | IN} database_name]
+[LIKE 'pattern' | WHERE search_condition];
+
+SHOW TRIGGERS FROM database_name LIKE 'pattern'; # similar to SHOW TRIGGERS IN database_name LIKE 'pattern';
+```
+
+- Notice that to execute the SHOW TRIGGERS statement, you need to have the SUPER privilege.
+- Below is the Syntax for defining a trigger that will activate before or after an existing trigger in response to the same event and action time:
+- Only for MySQL 5.7.2+
+
+```sql
+DELIMITER $$
+
+CREATE TRIGGER trigger_name
+{BEFORE|AFTER}{INSERT|UPDATE|DELETE} 
+ON table_name FOR EACH ROW 
+{FOLLOWS|PRECEDES} existing_trigger_name
+BEGIN
+    -- statements
+END$$
+
+DELIMITER ;
+```
+
+## How To Call a Stored Procedure From a Trigger
+
+- The following statement creates a BEFORE UPDATE trigger that calls the stored procedure CheckWithdrawal:
+
+```sql
+DELIMITER $$
+
+CREATE TRIGGER before_accounts_update
+BEFORE UPDATE
+ON accounts FOR EACH ROW
+BEGIN
+    CALL CheckWithdrawal (
+        OLD.accountId, 
+        OLD.amount - NEW.amount
+    );
+END$$
+
+DELIMITER ;
+```
+
