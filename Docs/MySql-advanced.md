@@ -614,3 +614,209 @@ END$$
 DELIMITER ;
 ```
 
+# Events
+
+- MySQL events are similar to cron jobs on Linux or task schedulers on Windows, providing a tool to automate recurring tasks within the MySQL database server.
+
+## lifecycle
+
+- Creation -> Activation -> Modification -> Deactivation -> Removal
+- MySQL uses a special thread called an event scheduler thread to execute all scheduled events.
+
+```sql
+SHOW PROCESSLIST; #view the status of the event scheduler thread
+SET GLOBAL event_scheduler = ON; #to enable and start
+SET GLOBAL event_scheduler = OFF;
+```
+
+## Create an Event
+
+```sql
+CREATE EVENT [IF NOT EXIST] event_name
+ON SCHEDULE <schedule> #this can be vary based on the schedule
+DO
+event_body
+
+#If the event is a one-time event, you use the syntax:
+AT timestamp [+ INTERVAL]
+
+#If the event is a recurring event, you use the EVERY clause:
+EVERY interval 
+STARTS timestamp [+INTERVAL] 
+ENDS timestamp [+INTERVAL]
+```
+- If you have multiple statements, you can use the BEGIN...END block. Please note that you can call a stored procedure inside the body of an event.
+- Event are automatically dropped when it expires
+- To keep the event after it has expired, you use the ON COMPLETION PRESERVE clause.
+
+```sql
+SHOW EVENTS FROM mydb; #To show all events in the mydb database
+
+CREATE EVENT one_time_log
+ON SCHEDULE AT CURRENT_TIMESTAMP + INTERVAL 1 MINUTE
+ON COMPLETION PRESERVE
+DO
+   INSERT INTO messages(message)
+   VALUES('Preserved One-time event');
+```
+
+## ALTER EVENT
+
+```sql
+ALTER EVENT [IF EXISTS] event_name
+ON SCHEDULE schedule
+[ON COMPLETION [NOT] PRESERVE]
+[COMMENT 'comment']
+[ENABLE | DISABLE]
+DO event_body
+
+#Changing the schedule
+ALTER EVENT test_event
+ON SCHEDULE EVERY 2 MINUTE;
+
+#Changing the event body
+ALTER EVENT test_event
+DO
+   INSERT INTO messages(message)
+   VALUES('New message');
+#Disabling an event
+ALTER EVENT test_event
+DISABLE;
+
+#Enabling an event
+ALTER EVENT test_event
+ENABLE;
+
+#Renaming an event
+ALTER EVENT test_event
+RENAME TO sample_event;
+
+#Moving an event to another database
+ALTER EVENT mydb.sample_event
+RENAME TO newdb.test_event;
+```
+
+## DROP EVENT
+
+```sql
+DROP EVENT [IF EXISTS] event_name [, event_name] ...;
+```
+- Note that you can use the wildcard % in the event name to remove all the events that match a specific pattern.
+
+- To perform the DROP EVENT statement, you need to have EVENT privilege for the database to which the event belongs.
+
+## SHOW EVENTS
+
+```sql
+SHOW EVENTS [FROM db_name] 
+[LIKE 'pattern' | WHERE expr];
+```
+
+# Views
+
+- By definition, a view is a named query stored in the database catalog.
+- Note that a view does not physically store the data. When you issue the SELECT statement against the view, MySQL executes the underlying query specified in the view’s definition and returns the result set. For this reason, sometimes, a view is referred to as a virtual table.
+
+## CREATE VIEW
+
+```sql
+CREATE [OR REPLACE] VIEW [db_name.]view_name [(column_list)]
+AS
+  select-statement;
+
+SHOW TABLES; #gives all the tables and viwes since both shred same nemespace
+SHOW FULL TABLES; #To know which object is a view or table
+```
+- MySQL allows you to create a view based on another view.
+
+## View Processing Algorithms
+
+```sql
+#CREATE VIEW
+CREATE [OR REPLACE][ALGORITHM = {MERGE | TEMPTABLE | UNDEFINED}] VIEW 
+   view_name[(column_list)]
+AS 
+   select-statement;
+
+#ALTER VIEW
+CREATE [ALGORITHM = {MERGE | TEMPTABLE | UNDEFINED}] VIEW 
+   view_name[(column_list)] 
+AS 
+   select-statement;
+```
+
+## Updatable views
+
+- In MySQL, views are not only queryable but also updatable. (INSERT | UPDATE | DELETE)
+- These modify rows of the base table through the updatable view.
+- However, to create an updatable view, the SELECT statement defining the view must not contain any of the following elements:
+
+```
+Aggregate functions such as MIN, MAX, SUM, AVG, and COUNT.
+DISTINCT
+GROUP BY clause.
+HAVING clause.
+UNION or UNION ALL clause.
+Left join or outer join.
+Subquery in the SELECT clause or in the WHERE clause that refers to the table appeared in the FROM clause.
+Reference non-updatable views in the FROM clause.
+Use literal values.
+Multiple references to any column of the base table.
+```
+- If you create a view with the TEMPTABLE algorithm, the view is not updatable.
+- Note that it is possible to create updatable views based on multiple tables using an inner join.
+
+## WITH CHECK OPTION
+
+- Sometimes, you create a view to reveal the partial data of a table. However, a simple view is updatable, and therefore, it is possible to update data that is not visible through the view. This update makes the view inconsistent.
+
+- To ensure the consistency of the view, you use the WITH CHECK OPTION clause when you create or modify the view.
+
+- The WITH CHECK OPTION is an optional clause of the CREATE VIEW statement. This WITH CHECK OPTION prevents you from updating or inserting rows that are not visible through the view.
+
+- In other words, whenever you update or insert a row of the base tables through a view, MySQL ensures that the insert or update operation conforms with the definition of the view.
+
+```sql
+CREATE OR REPLACE VIEW view_name 
+AS
+  select_statement
+WITH CHECK OPTION;
+```
+
+## Show View
+
+- Note that the SHOW TABLES statement returns only the views that you have the privilege to access.
+
+```sql
+SHOW FULL TABLES
+[{FROM | IN } database_name]
+WHERE table_type = 'VIEW';
+
+SHOW FULL TABLES
+[{FROM | IN } database_name]
+LIKE pattern;
+
+#Query data from the table information_schema.tables to get the views in a database.
+SELECT * FROM information_schema.tables; 
+```
+
+## SHOW CREATE VIEW
+
+- Use the SHOW CREATE VIEW statement to display the statement used to create the view.
+
+```sql
+SHOW CREATE VIEW view_name;
+```
+
+## Rename View
+
+```sql
+RENAME TABLE original_view_name TO new_view_name;
+```
+- Another indirect way to rename a view is to use a sequence of the DROP VIEW and CREATE VIEW statement.
+
+## DROP VIEW
+
+```sql
+DROP VIEW [IF EXISTS] view_name1 [,view_name2]...;
+```

@@ -1,4 +1,3 @@
-
 - Setting up a VPS to host a React + Next.js project with security in mind requires several steps. Below is a step-by-step guide:
 
 # Setup the VPS
@@ -458,27 +457,39 @@ Since you have a VPS from InterServer and are using Cloudflare, I recommend:
 ✅ Let’s Encrypt SSL on VPS + Cloudflare in "Full (Strict)" mode
 This gives you 100% free and strong encryption.
 
-# NginX cofig file for SSL
+# NginX config file for SSL
 
 ```bash
-# HTTP server block (Port 80)
+# Redirect non-www to www (Port 80 - HTTP)
 server {
     listen 80;
-    server_name <YOURDOMAIN>.com;
+    server_name madusankadissanayake.com;
    
     # Redirect non-www to www
-    return 301 https://www.<YOURDOMAIN>.com$request_uri;
+    return 301 https://www.madusankadissanayake.com$request_uri;
 
 }
 
+# Redirect non-www to www (Port 443 - HTTPS)
+server {
+    listen 443 ssl http2;
+    server_name madusankadissanayake.com;
+
+    ssl_certificate /etc/letsencrypt/live/madusankadissanayake.com/fullchain.pem; # Your SSL certificate path
+    ssl_certificate_key /etc/letsencrypt/live/madusankadissanayake.com/privkey.pem; # Your SSL private key path
+
+    return 301 https://www.madusankadissanayake.com$request_uri;
+}
+
+# Main HTTPS block for www.madusankadissanayake.com
 # HTTPS server block (Port 443)
 server {
     listen 443 ssl http2;
-    server_name www.<YOURDOMAIN>.com;
+    server_name www.madusankadissanayake.com;
 
     # SSL settings
-    ssl_certificate /etc/letsencrypt/live/<YOURDOMAIN>.com/fullchain.pem; # Your SSL certificate path
-    ssl_certificate_key /etc/letsencrypt/live/<YOURDOMAIN>.com/privkey.pem; # Your SSL private key path
+    ssl_certificate /etc/letsencrypt/live/madusankadissanayake.com/fullchain.pem; # Your SSL certificate path
+    ssl_certificate_key /etc/letsencrypt/live/madusankadissanayake.com/privkey.pem; # Your SSL private key path
 
     # SSL protocols and ciphers (adjust based on your preferences)
     ssl_protocols TLSv1.2 TLSv1.3;
@@ -508,12 +519,12 @@ server {
         proxy_set_header Host $host;
         proxy_cache_bypass $http_upgrade;
     }
-
-	# This root is just for teting purpose,	
+   
     location /test {
-        alias /var/www/port-folio/; # alias mean the file is at the root folder, if it is in a subdirectory `root` should be used
+        alias /var/www/port-folio/;
         index index.html;
     }
+
 
     # Enable Gzip compression for performance improvements
     gzip on;
@@ -527,8 +538,8 @@ server {
     add_header X-XSS-Protection "1; mode=block" always;
 
     # Logging
-    access_log /var/log/nginx/<YOURDOMAIN>.com.access.log;
-    error_log /var/log/nginx/<YOURDOMAIN>.com.error.log;
+    access_log /var/log/nginx/madusankadissanayake.com.access.log;
+    error_log /var/log/nginx/madusankadissanayake.com.error.log;
 }
 ```
 - Check logs for errors

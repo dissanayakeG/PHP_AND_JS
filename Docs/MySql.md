@@ -18,10 +18,8 @@ SELECT CONCAT(“HI",”MySql")
 - In MySQL, NULL is lower than non-NULL values
 
 ```sql
-SELECT 
-    contactLastname, contactFirstname
-FROM
-    customers
+SELECT contactLastname, contactFirstname
+FROM customers
 ORDER BY contactLastname DESC , contactFirstname ASC;
 ```
 - The ORDER BY  clause sorts the result set by the last name in descending order first and then sorts the sorted result set by the first name in ascending order to make the final result set. (Guess here are multiple records with same lastName but with different firstName)
