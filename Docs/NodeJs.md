@@ -31,6 +31,18 @@ server.listen(port, hostname, () => { console.log(`server is running a http://${
     // Module code
 });
 ```
+
+### IIFE - Immediately Invoked Function Expression
+
+- In Node.js, every module is wrapped in an Immediately Invoked Function Expression (IIFE) behind the scenes. This provides module scope isolation and gives access to special local variables like exports, require, module, __filename, and __dirname.
+- This pattern ensures that variables defined in one module do not pollute the global scope, and it enables the CommonJS module system.
+- 
+```javascript
+(function (exports, require, module, __filename, __dirname) {
+    // Your module code here
+})();
+```
+
 - Node.js supports two module systems. CommonJS Modules and  ES modules
 
 ### CommonJS Modules
@@ -84,16 +96,80 @@ path.sep
 path.delimiter
 
 //Methods
-path.basename(path, [,ext])
-path.dirname(path)
+path.basename(path, [,ext]) //if the extension is provided, file name return without an extention
+path.dirname(path) //return only dirname
 path.extname(path) //console.log(path.extname('index.html')); //.html
 path.format(pathObj)
 path.isAbsolute(path)
 path.join(...path) //console.log(path.join('/home', 'js', 'dist', 'app.js')) //\home\js\dist\app.js
 path.normalize(path)
-path.parse(path)
+path.parse(path) //return an object -> path.parse("c://mad/react/app.js").basename)
 path.relative(from, to)
 path.resolve(...path)
+```
+
+### FS Module
+
+- There are 3 types
+- Promise API | Callback API | Sync API
+
+**Promise API**
+
+```javascript
+import * as fs from "fs/promises"
+import * as fs from "fs/promises"
+
+try{
+    //create directory
+    await fs.mkdir("/home/madusanka/DEVS") //path should be correct and exist
+    await fs.mkdir("/home/madusanka", {recursive:true}) //now the folder is created even if the parent folder not exists
+    
+    //read a directory
+    const files = await fs.readdir("/home/madusanka/DEVS")
+    for(const file of files){
+        console.log(file)
+    }
+
+    //remove directory (directory should be empty)
+    await fs.rmdir("/home/madusanka/DEVS/fs")
+
+    //Create and write file
+    await fs.writeFile("/home/madusanka/DEVS/abc.txt", "Hello World") //override file content if exist
+
+    //Read file
+    const data = await fs.readFile("/home/madusanka/DEVS/abc.txt", "utf-8")
+    console.log(data);
+
+    //Append file
+    await fs.appendFile("/home/madusanka/DEVS/abc.txt", "\nnew content")
+
+    //Copying file (destination file will be created if not present)
+    await fs.copyFile("/home/madusanka/DEVS/abc.txt", "/home/madusanka/DEVS/abcd.txt")
+ 
+}catch(error){
+    console.log(error)
+}
+```
+
+**Callback API**
+
+- all the above function can be used, but import is changes and no need try catch, instead we use callback function
+
+```javascript
+import * as fs from "fs"
+
+fs.mkdir("/home/intervest/DEVS/FS Module/new directory", function(error, data){
+    if(error) throw error;
+})
+```
+
+**Sync APi**
+
+- no need to add callback as well, but use `Sync` at the end of the method name
+
+```javascript
+import * as fs from "fs"
+fs.mkdirSync("/home/intervest/DEVS/FS Module/new directory", {recursive:true})
 ```
 
 ### Os Module
@@ -104,16 +180,37 @@ const os = require('os');
 import os from 'os';
 
 os.type()
-os.arch()
-os.platform()
+os.arch() //x64
+os.platform() //win32
 os.release()
 os.version()
 os.uptime()
 os.userInfo()
 os.totalmem()
 os.freemem()
-os.cpus()
+os.cpus() //cpu as an object
 os.networkInterfaces()
+```
+
+### URL Module
+
+```javascript
+import {URL} from 'url'
+
+const myUrl = new URL("https://yahoo.com:8080?query=someQuery#someHash")
+
+console.log(myUrl.hash)
+console.log(myUrl.host)
+console.log(myUrl.hostname)
+console.log(myUrl.port)
+console.log(myUrl.href)
+console.log(myUrl.protocol)
+console.log(myUrl.search)
+console.log(myUrl.searchParams)
+
+//Both works same
+console.log(myUrl.toString())
+console.log(myUrl.toJSON())
 ```
 
 ### Event Module
@@ -123,11 +220,16 @@ os.networkInterfaces()
 
 ```javascript
 const EventEmitter = require('events');
+//import EventEmitter from  'events';
 
 const emitter = new EventEmitter();
 
 emitter.on('saved', (arg) => {
     console.log(`A saved event occurred.`);
+});
+
+emitter.once('onetime', (arg) => {
+    console.log(`This will be emited only one time, no matter how much time called.`);
 });
 
 emitter.emit('saved',{...someData});//A saved event occurred.
@@ -143,6 +245,65 @@ class Stock extends EventEmitter {....code}
 
 ### HTTP Module
 - The http module is a core module of Node designed to support many features of the HTTP protocol.
+- in real world we use Express like frameworks to create NodeJs servers
+
+```javascript
+import http from 'http'
+
+const server = http.createServer((req,res)=>{
+    // console.log(req)
+    res.setHeader("Content-Type", "text/html")
+    res.statusCode = 404
+    res.statusMessage = "BAD"
+
+    //Short way
+    res.writeHead(202,"Good", {"Content-Type": "text/html"})
+
+    res.write('<h1>Hello from NodeJs</h1>')
+})
+
+server.listen(8000, ()=>console.log("Server is Up!"))
+```
+
+### Routing
+
+```javascript
+import http from 'http'
+
+const server = http.createServer((req, res) => {
+    if (req.url === "/") {
+        res.end("<h1>Home</h1>")
+    }else if(req.url === "/about"){
+        res.end("<h1>About</h1>")
+    }else{
+        res.end("<h1>Not Found :(</h1>")
+    }
+})
+
+server.listen(8000, () => console.log("Server is Up!"))
+```
+
+### Serving Files
+
+```javascript
+import http from 'http'
+import * as fs from 'fs'
+
+const server = http.createServer((req, res) => {
+    if (req.url === "/") {
+        res.writeHead(200, "Good", { "Content-Type": "text/html" })
+        fs.readFile("./public/Home.html", (error, data) => {
+            if (error) throw error
+            res.end(data)
+        })
+
+    } else {
+        res.end("<h1>Not Found :(</h1>")
+    }
+})
+
+server.listen(8000, () => console.log("Server is Up!"))
+```
 
 ### Process module
 - The process module has the env property that contains all the environment variables.
@@ -153,6 +314,50 @@ SET NODE_ENV=development //Windows
 EXPORT NODE_ENV=development //Mac/Linux
 process.env.NODE_ENV
 ```
+
+## Stream
+
+- Node.js streams provide an efficient way to work with large amounts of data (such as files or network responses) **without loading the entire dataset into memory**. Streams handle data in chunks and can be in one of four types: **Readable, Writable, Duplex** (both readable and writable), or **Transform** (modifies data as it passes through). Streams are ideal for performance-critical applications.
+
+- Streams can **pipe** data between sources and destinations (e.g., reading from a file and writing to another).
+- By default, the internal buffer size is **64 KB (65536 bytes)** for streams using binary mode.
+- The buffer size can be customized using the `highWaterMark` option.
+- This streaming approach improves memory usage and application responsiveness, especially with large data.
+
+### Example: Reading a Large File Using `createReadStream`
+
+```javascript
+// Step 1: Generate a file with a large dataset
+import fs from 'fs';
+
+for (let i = 0; i < 10000; i++) {
+  // Append data to 'data.txt'
+  fs.writeFileSync("./data.txt", `${i}\n`, { flag: "a" });
+}
+
+import { createReadStream } from 'fs';
+
+// Step 2: Read the file using a readable stream
+// 'highWaterMark' can be used to set buffer size (in bytes)
+// 'encoding' set to 'utf-8' to get string data instead of buffers
+const stream = createReadStream("./data.txt", {
+  encoding: "utf-8",
+  // highWaterMark: 10000 // Optional: customize buffer size
+});
+
+// Step 3: Listen to 'data' event to process chunks
+stream.on("data", (chunk) => {
+  console.log(chunk); // Logs each chunk of data
+});
+
+```
+- 'data' is a built-in event name defined by Node.js core, specifically for Readable streams. It's not an arbitrary name — it must be 'data' to work as expected.
+- if you're using Node.js streams, you must use the core-defined event names like:
+
+'data' — when a chunk is available
+'end' — when the stream ends
+'error' — if something goes wrong
+'close' — when the stream is closed
 
 # ExpressJs
 ```javascript
