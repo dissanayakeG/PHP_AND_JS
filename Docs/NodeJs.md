@@ -406,6 +406,7 @@ app.get('/users/:userId/books/:bookId', (req, res) => {})
 ```
 
 - To have more control over the exact string that can be matched by a route parameter, you can append a regular expression in parentheses (()):
+
 ```javascript
 Route path: /user/:userId(\d+)
 Request URL: http://localhost:3000/user/42
@@ -416,6 +417,7 @@ req.params: {"userId": "42"}
 
 - You can provide multiple callback functions that behave like middleware to handle a request.
 - Route handlers can be in the form of a function, an array of functions, or combinations of both
+- If the next() method is not called within a particular middleware function in Express.js, the subsequent middleware and route handlers will not be executed.
 
 ```javascript
 const cb0 = function (req, res, next) {
@@ -435,7 +437,10 @@ app.get('/example/d', [cb0, cb1], (req, res, next) => {
   res.send('Hello from D!')
 })
 ```
-- You can create chainable route handlers for a route path by using app.route()
+
+### app.route()
+
+- You can create chainable route handlers for a route path by using `app.route()`
 
 ```javascript
 app.route('/book')
@@ -449,10 +454,14 @@ app.route('/book')
     res.send('Update the book')
   })
 ```
-- Use the express.Router class to create modular, mountable route handlers.
+
+### express.Router
+- Use the `express.Router` class to create modular, mountable route handlers.
 
 ```javascript
-const express = require('express')
+#Birds.js
+
+const express = require('express') //or import if you use "type":"module" in nearest parent package.json
 const router = express.Router()
 
 //if the parent route /birds has path parameters, To make them accessible from the sub-routes.
@@ -474,15 +483,19 @@ router.get('/about', (req, res) => {
   res.send('About birds')
 })
 
-module.exports = router
+//route handlers can be moved into separate controllers if you wish
 
-//Using in app.js
-const birds = require('./birds')
+module.exports = router ////or export default router, if you use "type":"module" in nearest parent package.json
+
+# app.js
+const birds = require('./birds') //or import if you use "type":"module" in nearest parent package.json
 app.use('/birds', birds)
 ```
 
 ## Serving static files
+
 - For more refer [Doc](https://expressjs.com/id/resources/middleware/serve-static.html)
+
 ```javascript
 app.use(express.static('public'))
 app.use(express.static('files'))
@@ -493,7 +506,8 @@ app.use('/static', express.static(path.join(__dirname, 'public')))
 ```
 
 ## Middlewares
-- next('route') will work only in middleware functions that were loaded by using the app.METHOD() or router.METHOD() functions.
+
+- `next('route')` will work only in middleware functions that were loaded by using the `app.METHOD()` or `router.METHOD()` functions.
 
 ```javascript
 app.get('/user/:id', (req, res, next) => {
