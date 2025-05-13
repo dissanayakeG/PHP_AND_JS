@@ -4,6 +4,7 @@
 JavaScript was created in 1995 by Brendan Eich while he was working at Netscape. It was originally called Mocha, then renamed to LiveScript, and finally to JavaScript. Today, JavaScript is one of the most popular programming languages in the world, primarily used for web development.
 
 JavaScript consists of three main components:
+
 - **ECMAScript**: The core language specification
 - **DOM (Document Object Model)**: Allows JavaScript to interact with HTML and CSS
 - **BOM (Browser Object Model)**: Allows JavaScript to interact with the browser
@@ -21,6 +22,7 @@ const PI = 3.14;           // Using const (for values that won't change)
 ```
 
 Important rules for variables:
+
 - Cannot start with digits or special characters (except $ and _)
 - Use camelCase by convention (e.g., `firstName`, `totalAmount`)
 - JavaScript is dynamically typed (you don't need to specify the type)
@@ -662,12 +664,14 @@ JavaScript objects have two types of properties:
 Every property has attributes that control its behavior:
 
 **Data Properties**:
+
 - **Configurable**: If false, the property cannot be deleted or have its attributes changed
 - **Enumerable**: If true, the property appears in for...in loops
 - **Writable**: If false, the property's value cannot be changed
 - **Value**: The actual value of the property
 
 **Accessor Properties**:
+
 - **Configurable**: Same as above
 - **Enumerable**: Same as above
 - **Get**: The getter function
@@ -800,6 +804,7 @@ console.log(employee.getFullName());  // "Jane Smith (Developer)"
 ## Functions as Objects
 
 In JavaScript, all functions are actually objects - they are instances of the `Function` type. This means functions can:
+
 - Have properties and methods
 - Be passed as arguments to other functions
 - Be assigned to variables
@@ -1116,6 +1121,7 @@ function getUsers() {
 ```
 
 A Promise can be in one of three states:
+
 - **Pending**: Initial state, neither fulfilled nor rejected
 - **Fulfilled**: Operation completed successfully
 - **Rejected**: Operation failed
@@ -1335,6 +1341,7 @@ async function showServiceCost() {
 ```
 
 The async/await version is:
+
 - More readable (resembles synchronous code)
 - Easier to debug (clearer stack traces)
 - Simpler to reason about (sequential execution)
@@ -1401,7 +1408,6 @@ async function showUserComments(userId) {
 
 Each evolution has made asynchronous code progressively more readable and maintainable.
 
-
 # JavaScript Iterators and Generators
 
 ## Iterators and Iterables
@@ -1411,10 +1417,12 @@ JavaScript ES6 introduced a formal way to iterate through data using **iterators
 ### What is an Iterable?
 
 An iterable is an object that implements the **iterable protocol**:
+
 - It must have a method with the key `Symbol.iterator`
 - This method returns an iterator object
 
 Built-in iterables in JavaScript include:
+
 - Arrays
 - Strings
 - Maps
@@ -1424,6 +1432,7 @@ Built-in iterables in JavaScript include:
 ### What is an Iterator?
 
 An iterator is an object that implements the **iterator protocol**:
+
 - It must have a `next()` method
 - This `next()` method returns an object with two properties:
   - `value`: The current value
@@ -1787,6 +1796,7 @@ This pattern was popular with libraries like co and redux-saga.
 ## What Are Modules?
 
 A module is a JavaScript file that:
+
 - Executes in **strict mode** automatically
 - Keeps variables and functions contained (not added to the global scope)
 - Allows explicit importing and exporting of code
@@ -1974,6 +1984,7 @@ try {
 ```
 
 When a module uses top-level await:
+
 - It acts like an async function
 - Modules that import it will wait for it to complete before executing
 
@@ -1984,6 +1995,7 @@ When a module uses top-level await:
 Symbol is a primitive data type introduced in ES6 (ECMAScript 2015) that represents a unique, immutable value.
 
 Key characteristics:
+
 - Symbols are **always unique**, even when created with the same description
 - They provide a way to create non-colliding object properties
 - They are primitive values (not objects)
@@ -2462,6 +2474,7 @@ JavaScript provides three ways to declare variables: `var`, `let`, and `const`. 
 `var` has function scope and was the original way to declare variables in JavaScript.
 
 **Characteristics:**
+
 - **Scope**: Function-scoped (or global if declared outside a function)
 - **Hoisting**: Fully hoisted with initialization to `undefined`
 - **Redeclaration**: Allows redeclaration of the same variable
@@ -2492,6 +2505,7 @@ console.log(window.globalVar);  // "I'm global" (in browser)
 `let` was introduced in ES6 (ES2015) and provides block scoping.
 
 **Characteristics:**
+
 - **Scope**: Block-scoped `{}`
 - **Hoisting**: Hoisted but not initialized (temporal dead zone)
 - **Redeclaration**: Does not allow redeclaration in the same scope
@@ -2522,6 +2536,7 @@ console.log(window.globalLet);  // undefined (in browser)
 `const` also has block scope but creates read-only references.
 
 **Characteristics:**
+
 - **Scope**: Block-scoped `{}`
 - **Hoisting**: Hoisted but not initialized (temporal dead zone)
 - **Reassignment**: Cannot be reassigned
