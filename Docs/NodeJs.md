@@ -533,3 +533,32 @@ app.use((err, req, res, next) => {
 ```
 - **Error-handling middleware** always takes **four** arguments. You must provide four arguments to identify it as an error-handling middleware function. Even if you don’t need to use the next object, you must specify it to maintain the signature. Otherwise, the next object will be interpreted as regular middleware and will fail to handle errors.
 
+## Template Engins
+
+```javascript
+npm install ejs
+
+#index.js
+import { router as viewRouter } from './routes/views.js'
+const app = express();
+app.set('view engine', 'ejs'); // Set the view engine to EJS
+app.use('/views', viewRouter); // This will handle requests to /views
+
+#routes/views.js
+import express from 'express'
+import { homePage } from '../controllers/views.js';
+
+const router = express.Router()
+router.get('/home', homePage);
+export { router };
+
+#controllers/views.js
+const homePage = (req, res, next) => {
+    res.render('index'); // Render the index view in the views folder
+}
+export { homePage };
+
+#create a `views` directory in the root folder and add index.html with simple html template, now go to the
+#http://localhost:5000/views/home and you can see the html file
+
+```
