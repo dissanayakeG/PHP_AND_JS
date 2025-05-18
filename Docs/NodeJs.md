@@ -47,43 +47,84 @@ server.listen(port, hostname, () => { console.log(`server is running a http://${
 
 ### CommonJS Modules
 ```javascript
-### Named Exports
-// math.js
+
+// math.js - Multiple exports using module.exports object
+module.exports = {
+  add: function(a, b) {
+    return a + b;
+  },
+  subtract: function(a, b) {
+    return a - b;
+  }
+};
+
+//imports
+const math = require('./math');
+console.log(math.add(5, 3));      // 8
+console.log(math.subtract(5, 3)); // 2
+
+// math.js - Named Exports
 function add(a, b) {
   return a + b;
 }
-module.exports.add = add;
+module.exports.add = add; || module.exports = {add, subtract};
 
-// app.js
+// imports
 const math = require('./math');
-let result = math.add(a, b);
-//or
-const { add, subtract } = require('./math');
+let result = math.add(a, b); || const { add, subtract } = require('./math');
 
-### Default Export
-// math.js
+// math.js - Default Export
 function anotherFunction(a, b) {
   return a * b;
 }
 module.exports = anotherFunction;
 
-// app.js
+// imports
 const math = require('./math');
 const add = math;
 ```
 - When you use the require() function to import the same module multiple times, the require() function evaluates the module once only at the first call and places it in a cache.
 - From the subsequent calls, the require() function uses the exports object from the cache instead of executing the module again.
+- File extensions are optional (but recommended for clarity)
+- Always use relative paths for local modules (./ or ../)
 
-### ES modules (Node 14.0.0 or later)
+### ES modules (Node ≥ 14.0.0)
 
 - Extention is **.mjs** or set **"type" : "module"** in **nearest parent package.json**
+- **File extensions are mandatory** in import path
+- **Always use relative paths** for local modules (`./` or `../`)
 
 ```javascript
 //Exports
 export { add, subtract };
+export default class User {}
 
 //Imports
 import { add, subtract } from './math.mjs';
+import User from './user.js';
+
+#Named vs Namespace Imports
+// Named imports (specific exports)
+import { add, subtract } from './math.js';
+
+// Namespace import (all exports as an object)
+import * as math from './math.js';
+console.log(math.add(5, 3));
+```
+
+**Top-level await**
+
+- ES Modules support top-level await (without async function):
+
+```javascript
+// data.js
+export const data = await fetch('https://api.example.com/data')
+  .then(response => response.json());
+
+// app.js
+import { data } from './data.js';
+// data is already resolved when imported
+console.log(data);
 ```
 
 ### Path Module
