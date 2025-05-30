@@ -38,6 +38,8 @@ BSON supports data types like Date, ObjectID, Binary, etc. that aren't available
 
 #### On Ubuntu/Debian:
 
+Reference : https://www.mongodb.com/docs/manual/tutorial/install-mongodb-on-ubuntu/
+
 ```bash
 # Import the MongoDB public GPG key
 wget -qO - https://www.mongodb.org/static/pgp/server-7.0.asc | sudo apt-key add -
@@ -58,34 +60,6 @@ sudo systemctl start mongod
 sudo systemctl enable mongod
 ```
 
-#### On CentOS/RHEL:
-
-```bash
-# Create a repository file
-echo '[mongodb-org-7.0]
-name=MongoDB Repository
-baseurl=https://repo.mongodb.org/yum/redhat/$releasever/mongodb-org/7.0/x86_64/
-gpgcheck=1
-enabled=1
-gpgkey=https://www.mongodb.org/static/pgp/server-7.0.asc' | sudo tee /etc/yum.repos.d/mongodb-org-7.0.repo
-
-# Install MongoDB
-sudo yum install -y mongodb-org
-
-# Start MongoDB service
-sudo systemctl start mongod
-
-# Enable MongoDB to start on boot
-sudo systemctl enable mongod
-```
-
-#### On macOS (using Homebrew):
-
-```bash
-brew tap mongodb/brew
-brew install mongodb-community
-brew services start mongodb-community
-```
 
 ### Verifying Installation
 
@@ -112,6 +86,14 @@ mongosh
 ```
 
 ### MongoDB Compass
+
+Reference : https://www.mongodb.com/docs/compass/current/install/
+
+```bash
+wget https://downloads.mongodb.com/compass/mongodb-compass_1.45.4_amd64.deb
+sudo apt install ./mongodb-compass_1.45.4_amd64.deb
+mongodb-compass
+```
 
 MongoDB Compass is a GUI for MongoDB that allows you to:
 - Visualize and explore your data
