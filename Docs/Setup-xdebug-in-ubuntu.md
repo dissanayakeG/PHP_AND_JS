@@ -59,6 +59,8 @@ php test_xdebug.php
 
 - You should see bool(true) and Xdebug configuration information without any "already loaded" warnings.
 
+ ![xdebugInEnabled.png](./xdebugInEnabled.png)
+
 ## Troubleshooting
 
 ```bash
@@ -70,6 +72,18 @@ tail -f /tmp/xdebug.log
 ```bash
 grep -r "xdebug" /etc/php/
 ```
+
+## Restart server
+
+```bash
+# for apache2
+sudo systemctl restart apache2
+
+# for Nginx
+sudo systemctl restart nginx
+```
+
+- If everything is set up correctly, Xdebug should be working by now.
 
 ## Laravel-Specific Xdebug Configuration
 
@@ -114,7 +128,7 @@ sudo systemctl restart apache2
             "request": "launch",
             "port": 9003,
             "pathMappings": {
-                "/home/abc/IV/Sites/site1": "${workspaceFolder}"
+                "/path/to/application": "${workspaceFolder}"
             },
             "ignore": [
                 "**/vendor/**/*.php"
